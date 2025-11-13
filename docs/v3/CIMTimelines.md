@@ -1,5 +1,28 @@
 
 
+### Enumeration: TimeIndicatorSize
+#### Represents the timeline time indicator size. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Small| 0| Timeline time indicator size small. 
+| Medium| 1| Timeline time indicator size medium. 
+| Large| 2| Timeline time indicator size large. 
+
+
+
+### Enumeration: TimeSpanSymbolBoundary
+#### Options for how a time span symbol will symbolize boundaries. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| None| 0| Time span symbol with no boundaries. 
+| StartPoint| 1| Time span symbol with start boundary. 
+| EndPoint| 2| Time span symbol with end boundary. 
+| StartAndEndPoint| 3| Time span symbol with start and end boundary. 
+
+
+
 
 ## CIMTimeline
 #### Represents a timeline. 
@@ -36,8 +59,82 @@
 | viewType | [enumeration TimelineViewType](CIMTimelines.md#enumeration-timelineviewtype) | The timeline view type. 
 | binningTimespan | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The time units used in summary view bin time. 
 | selectionSetURI | string | The URI of the binary reference containing the selection set. 
+| timelineTextSymbol | [CIMTextSymbol](CIMSymbols.md#cimtextsymbol) | The text symbol for the timeline. 
+| theme | [enumeration TimelineTheme](CIMTimelines.md#enumeration-timelinetheme) | The theme of the timeline. e.g. Light, Medium, or Dark. 
+| timeIndicator | [enumeration TimeIndicatorSize](CIMTimelines.md#enumeration-timeindicatorsize) | The time indicator. e.g. Small, Medium, or Large. 
 
 
+
+
+
+
+## CIMTimelineLaneDataSource
+#### Represents a source of temporal data. 
+
+
+### CIMTimelineLaneDataSource 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| ID | string | The value of the lane data source ID. 
+
+
+
+
+
+
+## CIMTimelineLaneDrawingInfo
+#### Represents the timeline lane drawing information. 
+
+
+### CIMTimelineLaneDrawingInfo 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| viewType | [enumeration TimelineLaneViewType](CIMTimelines.md#enumeration-timelinelaneviewtype) | The timeline lane view type. 
+| maxNumberOfCascadeRows | long | The max number of cascade rows for this timeline lane. 
+| timeSpanSymbolBoundary | [enumeration TimeSpanSymbolBoundary](CIMTimelines.md#enumeration-timespansymbolboundary) | The time span symbol boundary preference. 
+| colorRamp | [ColorRamp](Types.md#colorramp) | The color ramp for the time span symbols. 
+| timeSpanSymbol | [CIMLineSymbol](CIMSymbols.md#cimlinesymbol) | The line symbol for the timeline time spans. 
+| symbolStyleType | [enumeration TimelineSymbolStyleType](CIMTimelines.md#enumeration-timelinesymbolstyletype) | The timeline symbol style type. 
+
+
+
+
+
+
+## CIMTimelineLaneMapMemberDataSource
+#### Represents a map member source of temporal data. 
+
+
+### CIMTimelineLaneDataSource 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| ID | string | The value of the lane data source ID. 
+
+
+### CIMTimelineLaneMapMemberDataSource 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| mapMemberURI | string | The value of the map member uri. 
+| displayField | string | The value of the display field name. 
+| categoryField | string | The value of the category field name. 
+| categoryValue | any | The value of the category field value. 
+| categoryValueType | [enumeration esriFieldType](ExternalReferences.md#enumeration-esrifieldtype) | The value of the category field value type. 
+
+
+
+
+
+### Enumeration: TimelineLaneViewType
+#### Timeline lane type. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Overlap| 0| Lane view where data is allowed to overlap. 
+| Cascade| 1| Lane view where overlapping data is cascaded into new rows. 
 
 
 
@@ -56,8 +153,21 @@
 | displayField | string | The value of the display field name. 
 | categoryField | string | The value of the category field name. 
 | visibility | boolean | A value indicating whether the timeline layer is visible. 
+| drawingInfo | [CIMTimelineLaneDrawingInfo](CIMTimelines.md#cimtimelinelanedrawinginfo) | The timeline layer drawing information. 
+| dataSources | [[CIMTimelineLaneDataSource]](Types.md#timelinelanedatasource) | Timeline layer data sources. 
+| layerType | [enumeration TimelineLayerType](CIMTimelines.md#enumeration-timelinelayertype) | The timeline layer view type. 
 
 
+
+
+
+### Enumeration: TimelineLayerType
+#### Timeline layer type. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Individual| 0| Timeline layer containing data that is expandable. 
+| Leftover| 1| Timeline layer containing data that is not expandable. 
 
 
 
@@ -76,8 +186,30 @@
 | expanded | boolean | A value indicating whether the swimlane is expanded in the contents pane. 
 | swimlaneExpanded | boolean | A value indicating whether the swimlane is expanded in the timeline. 
 | layers | [[CIMTimelineLayer]](CIMTimelines.md#cimtimelinelayer) | The timeline layers. 
+| drawingInfo | [CIMTimelineLaneDrawingInfo](CIMTimelines.md#cimtimelinelanedrawinginfo) | The timeline swimlane drawing information. 
 
 
+
+
+
+### Enumeration: TimelineSymbolStyleType
+#### Represents the timeline symbol style types. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| SingleColor| 0| Symbol Single Color. 
+| AlternatingColor| 1| Symbol Alternating Colors. 
+
+
+
+### Enumeration: TimelineTheme
+#### Represents the timeline theme. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Light| 0| Timeline light theme. 
+| Medium| 1| Timeline medium theme. 
+| Dark| 2| Timeline dark theme. 
 
 
 
@@ -86,6 +218,6 @@
 
 |Property | Value | Description | 
 |---------|--------|--------|
-| DefaultView| 0| Default timeline view 
-| SummaryView| 1| Timeline Summary View 
+| DefaultView| 0| Default timeline view. 
+| SummaryView| 1| Timeline Summary View. 
 

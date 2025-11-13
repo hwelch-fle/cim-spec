@@ -37,6 +37,7 @@
 | visibility | boolean | A value indicating whether this page is visible. 
 | locked | boolean | A value indicating whether this page is locked. 
 | colorVisionDeficiencyMode | [enumeration ColorVisionDeficiencyType](CIMEnumerations.md#enumeration-colorvisiondeficiencytype) | The color vision deficiency mode. 
+| speakerNotes | string | The speaker notes for this page. 
 
 
 ### CIMImagePresentationPage 
@@ -72,6 +73,7 @@
 | visibility | boolean | A value indicating whether this page is visible. 
 | locked | boolean | A value indicating whether this page is locked. 
 | colorVisionDeficiencyMode | [enumeration ColorVisionDeficiencyType](CIMEnumerations.md#enumeration-colorvisiondeficiencytype) | The color vision deficiency mode. 
+| speakerNotes | string | The speaker notes for this page. 
 
 
 ### CIMMapPresentationPage 
@@ -209,6 +211,7 @@
 | visibility | boolean | A value indicating whether this page is visible. 
 | locked | boolean | A value indicating whether this page is locked. 
 | colorVisionDeficiencyMode | [enumeration ColorVisionDeficiencyType](CIMEnumerations.md#enumeration-colorvisiondeficiencytype) | The color vision deficiency mode. 
+| speakerNotes | string | The speaker notes for this page. 
 
 
 
@@ -288,6 +291,7 @@
 | visibility | boolean | A value indicating whether this page is visible. 
 | locked | boolean | A value indicating whether this page is locked. 
 | colorVisionDeficiencyMode | [enumeration ColorVisionDeficiencyType](CIMEnumerations.md#enumeration-colorvisiondeficiencytype) | The color vision deficiency mode. 
+| speakerNotes | string | The speaker notes for this page. 
 
 
 ### CIMVideoPresentationPage 
@@ -299,6 +303,7 @@
 | startTime | double | The number of seconds in the video at which to start playing. 
 | endTime | double | The number of seconds in the video at which to end playing. 
 | loop | boolean | A value indicating whether to play the video in a loop. 
+| autoPlay | boolean | A value indicating whether to start playing the video automatically. 
 
 
 

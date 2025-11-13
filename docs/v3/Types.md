@@ -184,6 +184,12 @@
 
 [CIMTiltShiftEffect](CIMEffects.md#cimtiltshifteffect)
 
+### ChartMovingAverageSupport
+
+[CIMChartBarSeries](CIMCharts.md#cimchartbarseries)
+
+[CIMChartLineSeries](CIMCharts.md#cimchartlineseries)
+
 ### ChartSeries
 
 [CIMChartBarSeries](CIMCharts.md#cimchartbarseries)
@@ -392,6 +398,8 @@
 
 [CIMNitfLayer](CIMImageLayers.md#cimnitflayer)
 
+[CIMNitfScreenOverlaySubLayer](CIMImageLayers.md#cimnitfscreenoverlaysublayer)
+
 [CIMRasterLayer](CIMImageLayers.md#cimrasterlayer)
 
 [CIMStandaloneVideo](CIMImageLayers.md#cimstandalonevideo)
@@ -439,6 +447,8 @@
 [CIMBuildingDisciplineSceneLayer](CIMServiceLayers.md#cimbuildingdisciplinescenelayer)
 
 [CIMBuildingSceneLayer](CIMServiceLayers.md#cimbuildingscenelayer)
+
+[CIMGaussianSplatLayer](CIMServiceLayers.md#cimgaussiansplatlayer)
 
 [CIMIndexedSceneLayer](CIMServiceLayers.md#cimindexedscenelayer)
 
@@ -914,6 +924,12 @@
 
 [CIMKnowledgeGraphTableDataConnection](CIMKnowledgeGraph.md#cimknowledgegraphtabledataconnection)
 
+### KnowledgeGraphNamedTypeFilter
+
+[CIMKnowledgeGraphNamedTypeFilterByInstances](CIMKnowledgeGraph.md#cimknowledgegraphnamedtypefilterbyinstances)
+
+[CIMKnowledgeGraphNamedTypeFilterByType](CIMKnowledgeGraph.md#cimknowledgegraphnamedtypefilterbytype)
+
 ### KnowledgeGraphProperty
 
 [CIMKnowledgeGraphNonspatialProperty](CIMKnowledgeGraph.md#cimknowledgegraphnonspatialproperty)
@@ -931,6 +947,14 @@
 [CIMKnowledgeGraphFixedPropertyValue](CIMKnowledgeGraph.md#cimknowledgegraphfixedpropertyvalue)
 
 [CIMKnowledgeGraphIDPropertyValue](CIMKnowledgeGraph.md#cimknowledgegraphidpropertyvalue)
+
+### KnowledgeGraphSpatialMerge
+
+[CIMKnowledgeGraphSpatialMergeIntersect](CIMKnowledgeGraph.md#cimknowledgegraphspatialmergeintersect)
+
+[CIMKnowledgeGraphSpatialMergeWithinDistance](CIMKnowledgeGraph.md#cimknowledgegraphspatialmergewithindistance)
+
+[CIMKnowledgeGraphSpatialMergeWithinDistanceGeodesic](CIMKnowledgeGraph.md#cimknowledgegraphspatialmergewithindistancegeodesic)
 
 ### LabelPlacementProperties
 
@@ -1110,6 +1134,8 @@
 
 [CIMTextMediaInfo](CIMPopup.md#cimtextmediainfo)
 
+[CIMUtilityNetworkAssociationsMediaInfo](CIMPopup.md#cimutilitynetworkassociationsmediainfo)
+
 ### MosaicSubLayerDefinition
 
 [CIMFeatureMosaicSubLayer](CIMImageLayers.md#cimfeaturemosaicsublayer)
@@ -1139,6 +1165,8 @@
 [CIMNitfGroupSubLayer](CIMImageLayers.md#cimnitfgroupsublayer)
 
 [CIMNitfImageSubLayer](CIMImageLayers.md#cimnitfimagesublayer)
+
+[CIMNitfScreenOverlaySubLayer](CIMImageLayers.md#cimnitfscreenoverlaysublayer)
 
 ### NorthArrow
 
@@ -1439,6 +1467,12 @@
 [CIMExteriorTick](CIMLayout.md#cimexteriortick)
 
 [CIMInteriorTick](CIMLayout.md#ciminteriortick)
+
+### TimelineLaneDataSource
+
+[CIMTimelineLaneDataSource](CIMTimelines.md#cimtimelinelanedatasource)
+
+[CIMTimelineLaneMapMemberDataSource](CIMTimelines.md#cimtimelinelanemapmemberdatasource)
 
 ### TinRenderer
 
@@ -1960,6 +1994,8 @@
 
 [CIMNitfLayer](CIMImageLayers.md#CIMNitfLayer)
 
+[CIMNitfScreenOverlaySubLayer](CIMImageLayers.md#CIMNitfScreenOverlaySubLayer)
+
 [CIMPansharpeningFilter](CIMImageLayers.md#CIMPansharpeningFilter)
 
 [CIMRangeDimensionValue](CIMImageLayers.md#CIMRangeDimensionValue)
@@ -2062,6 +2098,8 @@
 
 [CIMKGTypeProperty](CIMKnowledgeGraph.md#CIMKGTypeProperty)
 
+[CIMKnowledgeGraphCentralityConfiguration](CIMKnowledgeGraph.md#CIMKnowledgeGraphCentralityConfiguration)
+
 [CIMKnowledgeGraphCoordinatePropertyValue](CIMKnowledgeGraph.md#CIMKnowledgeGraphCoordinatePropertyValue)
 
 [CIMKnowledgeGraphDataConnection](CIMKnowledgeGraph.md#CIMKnowledgeGraphDataConnection)
@@ -2069,6 +2107,8 @@
 [CIMKnowledgeGraphDataLoadingConfiguration](CIMKnowledgeGraph.md#CIMKnowledgeGraphDataLoadingConfiguration)
 
 [CIMKnowledgeGraphDataLoadingEntity](CIMKnowledgeGraph.md#CIMKnowledgeGraphDataLoadingEntity)
+
+[CIMKnowledgeGraphDataLoadingMissingDataOptions](CIMKnowledgeGraph.md#CIMKnowledgeGraphDataLoadingMissingDataOptions)
 
 [CIMKnowledgeGraphDataLoadingRelationship](CIMKnowledgeGraph.md#CIMKnowledgeGraphDataLoadingRelationship)
 
@@ -2090,6 +2130,12 @@
 
 [CIMKnowledgeGraphLinkChartProperties](CIMKnowledgeGraph.md#CIMKnowledgeGraphLinkChartProperties)
 
+[CIMKnowledgeGraphMultipleTypeLookup](CIMKnowledgeGraph.md#CIMKnowledgeGraphMultipleTypeLookup)
+
+[CIMKnowledgeGraphNamedTypeFilterByInstances](CIMKnowledgeGraph.md#CIMKnowledgeGraphNamedTypeFilterByInstances)
+
+[CIMKnowledgeGraphNamedTypeFilterByType](CIMKnowledgeGraph.md#CIMKnowledgeGraphNamedTypeFilterByType)
+
 [CIMKnowledgeGraphNonspatialProperty](CIMKnowledgeGraph.md#CIMKnowledgeGraphNonspatialProperty)
 
 [CIMKnowledgeGraphQueryDefinition](CIMKnowledgeGraph.md#CIMKnowledgeGraphQueryDefinition)
@@ -2098,9 +2144,19 @@
 
 [CIMKnowledgeGraphSearchFilterSetting](CIMKnowledgeGraph.md#CIMKnowledgeGraphSearchFilterSetting)
 
+[CIMKnowledgeGraphSpatialMergeIntersect](CIMKnowledgeGraph.md#CIMKnowledgeGraphSpatialMergeIntersect)
+
+[CIMKnowledgeGraphSpatialMergeWithinDistance](CIMKnowledgeGraph.md#CIMKnowledgeGraphSpatialMergeWithinDistance)
+
+[CIMKnowledgeGraphSpatialMergeWithinDistanceGeodesic](CIMKnowledgeGraph.md#CIMKnowledgeGraphSpatialMergeWithinDistanceGeodesic)
+
 [CIMKnowledgeGraphSpatialProperty](CIMKnowledgeGraph.md#CIMKnowledgeGraphSpatialProperty)
 
+[CIMKnowledgeGraphSubGraph](CIMKnowledgeGraph.md#CIMKnowledgeGraphSubGraph)
+
 [CIMKnowledgeGraphTableDataConnection](CIMKnowledgeGraph.md#CIMKnowledgeGraphTableDataConnection)
+
+[CIMKnowledgeGraphTypeLookup](CIMKnowledgeGraph.md#CIMKnowledgeGraphTypeLookup)
 
 [CIMKnowledgeGraphTypePropertyInfo](CIMKnowledgeGraph.md#CIMKnowledgeGraphTypePropertyInfo)
 
@@ -2614,11 +2670,15 @@
 
 [CIMPopupLayout](CIMPopup.md#CIMPopupLayout)
 
+[CIMPopupUtilityNetworkAssociation](CIMPopup.md#CIMPopupUtilityNetworkAssociation)
+
 [CIMRelationshipMediaInfo](CIMPopup.md#CIMRelationshipMediaInfo)
 
 [CIMTableMediaInfo](CIMPopup.md#CIMTableMediaInfo)
 
 [CIMTextMediaInfo](CIMPopup.md#CIMTextMediaInfo)
+
+[CIMUtilityNetworkAssociationsMediaInfo](CIMPopup.md#CIMUtilityNetworkAssociationsMediaInfo)
 
 [CIMAspectRatio](CIMPresentation.md#CIMAspectRatio)
 
@@ -2647,6 +2707,8 @@
 [CIMBuildingDisciplineSceneLayer](CIMServiceLayers.md#CIMBuildingDisciplineSceneLayer)
 
 [CIMBuildingSceneLayer](CIMServiceLayers.md#CIMBuildingSceneLayer)
+
+[CIMGaussianSplatLayer](CIMServiceLayers.md#CIMGaussianSplatLayer)
 
 [CIMIndexedSceneLayer](CIMServiceLayers.md#CIMIndexedSceneLayer)
 
@@ -3035,6 +3097,12 @@
 [CIMTinNodeValueRenderer](CIMTerrainLayers.md#CIMTinNodeValueRenderer)
 
 [CIMTimeline](CIMTimelines.md#CIMTimeline)
+
+[CIMTimelineLaneDataSource](CIMTimelines.md#CIMTimelineLaneDataSource)
+
+[CIMTimelineLaneDrawingInfo](CIMTimelines.md#CIMTimelineLaneDrawingInfo)
+
+[CIMTimelineLaneMapMemberDataSource](CIMTimelines.md#CIMTimelineLaneMapMemberDataSource)
 
 [CIMTimelineLayer](CIMTimelines.md#CIMTimelineLayer)
 

@@ -71,6 +71,7 @@
 | Range| 16| Range. 
 | IQR| 17| Interquartile range. 
 | Count| 18| Count. 
+| RowCount| 19| Row Count, differs from Count in case of weighted statistics. 
 
 
 

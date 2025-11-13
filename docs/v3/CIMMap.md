@@ -69,7 +69,7 @@
 | trackTime | double | The time in seconds relative to the beginning of the track. 
 | anchorX | double | The horizontal placement percent of the graphic anchor position on the viewer (0 is left edge, 1 is right edge). 
 | anchorY | double | The vertical placement percent of the graphic anchor position on the viewer (0 is top edge, 1 is bottom edge). 
-| transparency | double | The transparency of the graphic. 
+| transparency | double | The transparency of the graphic as a percentage. 
 | scale | double | The size multiplier for the graphic. 
 | elementWidth | double | The pixel width for the graphic. It applies only to the animation screen graphic that contains a polygon graphic. 
 | elementHeight | double | The pixel height for the graphic. It applies only to the animation screen graphic that contains a polygon graphic. 
@@ -243,7 +243,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | captureMode | [enumeration EditingElevationCaptureMode](CIMMap.md#enumeration-editingelevationcapturemode) | The elevation capture mode. 
-| constantValue | double | The the value used when CaptureMode is Constant. 
+| constantValue | double | The value used when CaptureMode is Constant. 
 | constantValueUnit | [LinearUnit](ExternalReferences.md#linearunit) | The Unit used when CaptureMode is Constant. 
 | elevationSurfaceLayerURI | string | The URI of the elevation surface layer to be used when CaptureMode is Surface. 
 
@@ -410,8 +410,19 @@
 | pinnedLevels | boolean | A value indicating whether the levels portion of the floor filter have been pinned to show the levels lists or the floor filter includes the levels as a breadcrumb dropdown. 
 | siteFacilityIDs | [string] | The array of facility ids belonging to the selected site (only if just site has been selected). 
 | siteLevelIDs | [string] | The array of level ids belonging to the selected site (only if just site has been selected). 
+| floorVisibilityMode | [enumeration FloorVisibilityMode](CIMMap.md#enumeration-floorvisibilitymode) | The visibility mode for 3D floor aware scenes, which is used when deciding how to display 3D floor aware layers. 
 
 
+
+
+
+### Enumeration: FloorVisibilityMode
+#### Available floor visibility modes for 3D floor aware scenes. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| BelowSelected| 0| Display floor aware features below the selected level or vertical order. 
+| SelectedOnly| 1| Only display the floor aware features tied to the selected level. 
 
 
 
@@ -847,7 +858,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | layerURI | string | The path to the layer. 
-| transparency | double | The method of transition for the visibility of the layer. 
+| transparency | double | The transparency of the keyframe as a percentage. 
 | transparencyTransition | [enumeration AnimationTransition](CIMEnumerations.md#enumeration-animationtransition) | The method of transition for the transparency of the layer. 
 | visible | boolean | A value indicating whether the layer is visible. 
 | swipeDirection | [enumeration SwipeDirection](CIMMap.md#enumeration-swipedirection) | The direction to clip from an edge. 
@@ -931,7 +942,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | layerURI | string | The path to the layer. 
-| transparency | double | The method of transition for the visibility of the layer. 
+| transparency | double | The transparency of the keyframe as a percentage. 
 | transparencyTransition | [enumeration AnimationTransition](CIMEnumerations.md#enumeration-animationtransition) | The method of transition for the transparency of the layer. 
 | visible | boolean | A value indicating whether the layer is visible. 
 | swipeDirection | [enumeration SwipeDirection](CIMMap.md#enumeration-swipedirection) | The direction to clip from an edge. 
@@ -1119,6 +1130,7 @@
 | customFullExtent | [Polygon](ExternalReferences.md#polygon) | The custom full extent as a polygon. 
 | datumTransforms | [[CIMDatumTransform]](CIMMap.md#cimdatumtransform) | The set of geographic transformations used by the map for spatial references that do not have vertical coordinate system. 
 | defaultExtent | [Envelope](ExternalReferences.md#envelope) | The extent shown when you open new views of the map. The application automatically updates this property whenever you save a project with an active map view. 
+| defaultFieldOfView | double | The default field-of-view in degrees (value must be between 35 and 70). Only used when the scene is in Perspective draw mode. 
 | defaultScale | double | The scale used when you open new views of the map. When set, the application automatically applies this property after DefaultExtent to ensure the view is at the correct scale. 
 | defaultGlobeTransparency | double | The transparency of the spheroid's combined terrain mesh and draped content. 
 | defaultRotation | double | The default rotation. 
@@ -1200,6 +1212,7 @@
 | stereoModelDisplayMode | [enumeration StereoModelDisplayMode](CIMMap.md#enumeration-stereomodeldisplaymode) | The stereo model display mode. 
 | orientation | [enumeration StereoOrientation](CIMMap.md#enumeration-stereoorientation) | The stereo model display orientation. 
 | terrainFollowingDEM | [DataConnection](Types.md#dataconnection) | The Digital Elevation Model (DEM) used by cursor for terrain following. 
+| isStereoCursorFixed | boolean | A value indicating whether the cursor of the stereo model is fixed. 
 
 
 
@@ -1707,6 +1720,7 @@
 | time | [CIMKeyframeTime](CIMMap.md#cimkeyframetime) | The time keyframe. 
 | surfaces | [[CIMKeyframeSurface]](CIMMap.md#cimkeyframesurface) | The collection of surface keyframes. 
 | exploratoryAnalysis | [[CIMKeyframeAnalysis]](CIMMap.md#cimkeyframeanalysis) | The collection of exploratory analysis. 
+| weather | [WeatherEffect](Types.md#weathereffect) | The weather. 
 
 
 

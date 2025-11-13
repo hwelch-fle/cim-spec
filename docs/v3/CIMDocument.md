@@ -615,7 +615,7 @@
 | vintage | string | The description of vintage of the data (For example, "US2018 Q4"). 
 | script | string | The additional attribute for 'Script' summary type that defines script which should be calculated. 
 | scriptLanguage | [enumeration LabelExpressionEngine](CIMLabelPlacement.md#enumeration-labelexpressionengine) | The additional attribute for 'Script' summary type that defines script language used by 'Script' attribute. Currently only Python is supported. 
-| usedFields | [string] | The additional attribute for 'Script' summary type that defines another fields used by script. These may include featureclass fields (even non-existing in calculator?) and another scripts. 
+| usedFields | [string] | The additional attribute for 'Script' summary type that defines another fields used by script. These may include feature class fields (even non-existing in calculator?) and another scripts. 
 | showInDataBrowser | boolean | A value indicating whether the field will be shown in the Data Browser control in ArcGIS Pro. 
 | outputFieldType | [enumeration esriFieldType](ExternalReferences.md#enumeration-esrifieldtype) | The type of the field for enrich output. For example, if we want to have a script variable returning String type values (like TLIFENAME variable in US dataset), or when the input (SDCX layer) fields are Integers we want to have integer output too. 
 

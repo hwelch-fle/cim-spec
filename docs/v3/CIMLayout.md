@@ -389,6 +389,16 @@
 
 
 
+### Enumeration: ColumnDirection
+#### A list of column layouts. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| AcrossDown| 0| Data is filled row by row from left to right. 
+| DownAcross| 1| Data is filled column by column from top to bottom. 
+
+
+
 
 ## CIMCondensedTabGridLine
 #### Defines a condensed tab. 
@@ -701,7 +711,7 @@
 | computeAtCenter | boolean | A value indicating whether to compute the scale at map center. 
 | displayFirstOutside | boolean | A value indicating whether to display the first numeric value outside the bar. 
 | displayLastOutside | boolean | A value indicating whether to display the last numeric value outside the bar. 
-| barWidth | double | The width of the scalebar. 
+| barWidth | double | The width of the scale bar. 
 
 
 ### CIMScaleMarks 
@@ -804,7 +814,7 @@
 | computeAtCenter | boolean | A value indicating whether to compute the scale at map center. 
 | displayFirstOutside | boolean | A value indicating whether to display the first numeric value outside the bar. 
 | displayLastOutside | boolean | A value indicating whether to display the last numeric value outside the bar. 
-| barWidth | double | The width of the scalebar. 
+| barWidth | double | The width of the scale bar. 
 
 
 ### CIMScaleMarks 
@@ -849,9 +859,13 @@
 
 |Property | Value | Description | 
 |---------|--------|--------|
-| First| 1| First point selection. 
-| Interior| 2| Interior point selection. 
-| Last| 4| Last point selection. 
+| First| 1| Display the first label along each grid edge. 
+| Interior| 2| Display the interior labels along each grid edge. 
+| FirstAndInterior| 3| Display the first label and the interior labels along each grid edge. 
+| Last| 4| Display the last label along each grid edge. 
+| FirstAndLast| 5| Display the first and last label along each grid edge. 
+| InteriorAndLast| 6| Display the interior labels and the last label along each grid edge. 
+| All| 7| Display all the labels along each grid edge. 
 
 
 
@@ -1155,6 +1169,7 @@
 | position | long | The position of the labels of the end points. 
 | lineSelection | long | The end point selection. 
 | drawLabelsParallel | boolean | A value indicating whether to draw the labels parallel to the map grid edges. 
+| edgeVisibilityFilter | [enumeration EndPointSelection](CIMLayout.md#enumeration-endpointselection) | A value indicating which labels to draw along the map grid edges. 
 
 
 
@@ -1350,6 +1365,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMGroupFooter 
@@ -1414,6 +1430,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMGroupHeader 
@@ -2931,6 +2948,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMRelatedReportSection 
@@ -3068,6 +3086,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportDetails 
@@ -3078,6 +3097,8 @@
 | rowBackgroundColors | [[CIMColor]](Types.md#color) | The collection of background colors for each of the repeating rows. 
 | rowBackgroundCount | long | The number of consecutive rows for each background color. 
 | keepRecordTogether | boolean | A value indicating whether to prevent a page break for a record in the Details subsection. 
+| columnGap | double | The gap between data columns. Units in inches. 
+| columnDirection | [enumeration ColumnDirection](CIMLayout.md#enumeration-columndirection) | A value the direction records will be rendered in a column. 
 
 
 
@@ -3212,6 +3233,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportFooter 
@@ -3275,6 +3297,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportHeader 
@@ -3338,6 +3361,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportPageSection 
@@ -3433,6 +3457,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportPageFooter 
@@ -3495,6 +3520,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportPageHeader 
@@ -3557,6 +3583,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportPageSection 
@@ -3620,6 +3647,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 ### CIMReportSection 
@@ -3684,6 +3712,7 @@
 | excludeSectionPages | string | The comma delimited list of pages to exclude the section from. 
 | startOnNewPage | boolean | A value indicating whether the section should start on a new page. 
 | autoGrowTextElements | boolean | A value indicating whether the height of Text elements in sections will grow based on their content. 
+| honorColumns | boolean | A value indicating whether the section should be displayed in columns. 
 
 
 
@@ -3734,6 +3763,7 @@
 | DivisionsAndFirstSubdivisions| 5| Divisions and first subdivisions. 
 | DivisionsAndSubdivisions| 6| Divisions and subdivisions. 
 | DivisionsFirstSubdivisionFirstMidpoint| 7| Divisions first subdivision and first midpoint. 
+| EndsAndFirstDivision| 8| Ends and first division. 
 
 
 
@@ -3838,7 +3868,7 @@
 | computeAtCenter | boolean | A value indicating whether to compute the scale at map center. 
 | displayFirstOutside | boolean | A value indicating whether to display the first numeric value outside the bar. 
 | displayLastOutside | boolean | A value indicating whether to display the last numeric value outside the bar. 
-| barWidth | double | The width of the scalebar. 
+| barWidth | double | The width of the scale bar. 
 
 
 ### CIMScaleMarks 
@@ -3951,7 +3981,7 @@
 | computeAtCenter | boolean | A value indicating whether to compute the scale at map center. 
 | displayFirstOutside | boolean | A value indicating whether to display the first numeric value outside the bar. 
 | displayLastOutside | boolean | A value indicating whether to display the last numeric value outside the bar. 
-| barWidth | double | The width of the scalebar. 
+| barWidth | double | The width of the scale bar. 
 
 
 ### CIMScaleMarks 

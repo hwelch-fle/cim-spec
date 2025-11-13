@@ -125,7 +125,7 @@
 
 
 ## CIMChartRenderer
-#### Represents chart renderer which contains properties common to all symbolizers that depict some feature value as a chart drawn on top of the feature itself. 
+#### Depicts feature values as a chart drawn over the feature itself. 
 
 
 ### CIMRenderer 
@@ -148,17 +148,18 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | barrierWeight | [enumeration BarrierWeight](CIMVectorLayers.md#enumeration-barrierweight) | The barrier weight for chart label collision. 
-| baseSymbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The base symbol features are drawn with. 
-| chartSymbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The chart symbol. 
-| fieldNames | [string] | Field names used to populate the chart. 
+| baseSymbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol that depicts the underlying feature geometry. 
+| chartSymbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol that depicts the chart. 
+| fieldNames | [string] | The field names used to populate the chart. 
 | fieldTotals | [double] | The field totals. 
 | label | string | The renderer label. 
-| maxValue | double | Maximum value. 
-| preventChartOverlap | boolean | A value indicating whether or not to prevent chart overlap. 
+| maxValue | double | The maximum value. 
+| preventChartOverlap | boolean | A value indicating whether or not to prevent charts from visually overlapping on the map. 
 | proportionalPieSizeOptions | [CIMProportionalPieSizeOptions](CIMRenderers.md#cimproportionalpiesizeoptions) | The proportional pie size options. 
 | colorRamp | [ColorRamp](Types.md#colorramp) | The color ramp. 
 | fieldLabels | [string] | The labels that will be shown next to fields in the legend. 
 | showSizeLegend | boolean | A value indicating whether or not to show a legend group illustrating the chart's size. 
+| sizeLegendHeading | string | The heading of the size legend group. 
 | sizeLegendOutlineColor | [Color](Types.md#color) | The color of the outline for the size legend group. 
 | sizeLegendLeaderlineColor | [Color](Types.md#color) | The color of the leader line for the size legend group. 
 | drawChartSymbolsAboveAllLayers | boolean | A value indicating whether or not to draw chart symbols for line or polygon features above all layers. This option applies when drawing charts for line or polygon layer. The background will be drawn in contents order and this option indicates if the charts should be drawn in contents order or above all other layers. 
@@ -203,13 +204,13 @@
 
 
 ### Enumeration: ClassBreakType
-#### Class break types. 
+#### Types of class break renderer. 
 
 |Property | Value | Description | 
 |---------|--------|--------|
 | GraduatedColor| 0| Graduated color. 
 | GraduatedSymbol| 1| Graduated symbol. 
-| UnclassedColor| 2| Unclassed color. Applies only to Polygons and Multi Patches. 
+| UnclassedColor| 2| Unclassed color. Applies only to layers with polygon and multipatch geometry. 
 
 
 
@@ -332,7 +333,7 @@
 
 
 ### Enumeration: ClassificationMethod
-#### Classification methods. 
+#### Methods used for classifying numerical fields for graduated symbology. 
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -372,7 +373,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| expression | string | Expression. This property is used for Python or VBScript expressions. Arcade expressions will use the ValueExpressionInfo property. 
+| expression | string | The expression. This property is used for Python or VBScript expressions. Arcade expressions will use the ValueExpressionInfo property. 
 | minValue | double | The minimum value. 
 | maxValue | double | The maximum value. 
 | colorRamp | [ColorRamp](Types.md#colorramp) | The color ramp. 
@@ -435,7 +436,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| expression | string | Expression. This property is used for Python or VBScript expressions. Arcade expressions will use the ValueExpressionInfo property. 
+| expression | string | The expression. This property is used for Python or VBScript expressions. Arcade expressions will use the ValueExpressionInfo property. 
 | minValue | double | The minimum value. 
 | maxValue | double | The maximum value. 
 | colorRamp | [ColorRamp](Types.md#colorramp) | The color ramp. 
@@ -485,7 +486,7 @@
 
 
 ## CIMDotDensityRenderer
-#### Represents a dot density renderer. 
+#### Depicts numeric values as a quantity of dots drawn within polygon features. 
 
 
 ### CIMRenderer 
@@ -526,7 +527,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | colorRamp | [ColorRamp](Types.md#colorramp) | The color ramp. 
-| dotDensitySymbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The dot density symbol. 
+| dotDensitySymbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The dot density symbol. This is a polygon symbol with multiple layers. Fill and stroke layers are used to display the underlying polygon, while a marker layer is used for the actual dot representing a field value. 
 | dotSize | double | The dot size. 
 | dotValue | double | The dot value. 
 | excludeDotsFromMaskedArea | boolean | A value indicating whether or not the exclude dots from masked areas. 
@@ -556,15 +557,15 @@
 |---------|--------|--------|
 | title | string | The human readable text that describes the expression. 
 | expression | string | The Arcade expression used to evaluate and return the value that a property expects. 
-| name | string | The Name of the expression. 
-| returnType | [enumeration ExpressionReturnType](CIMRenderers.md#enumeration-expressionreturntype) | The ReturnType of the expression. 
+| name | string | The name of the expression. 
+| returnType | [enumeration ExpressionReturnType](CIMRenderers.md#enumeration-expressionreturntype) | The return type of the expression. 
 
 
 
 
 
 ### Enumeration: ExpressionReturnType
-#### Visual variable info types. 
+#### Return types for Arcade expressions. 
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -576,7 +577,7 @@
 
 
 ## CIMHeatMapRenderer
-#### Represents a heat map renderer. The Heat Map Renderer draws point features as a continuous color gradient representing the density of the points. The resulting density surface represents the physical proximity between points, optionally weighted by a specified attribute value. The displayed raster surface is dynamic and morphs according to the zoom level and updates if the source point features are edited. 
+#### Represents a heat map renderer. The heat map renderer draws point features as a continuous color gradient representing the density of the points. The resulting density surface represents the physical proximity between points, optionally weighted by a specified attribute value. The displayed raster surface is dynamic and updates if the source point features are edited. 
 
 
 ### CIMRenderer 
@@ -695,7 +696,7 @@
 
 
 ### Enumeration: PolygonSymbolColorTarget
-#### Polygon symbol color apply targets. 
+#### Target parts of a polygon symbol to which a color can be applied. 
 
 |Property | Value | Description | 
 |---------|--------|--------|

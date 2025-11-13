@@ -115,15 +115,21 @@
 | fillSymbolProperties | [CIMChartFillSymbolProperties](CIMCharts.md#cimchartfillsymbolproperties) | The properties of the fill symbol border. 
 | verticalOrientation | boolean | A value indicating whether this bar chart is vertically oriented. 
 | sortedCategoryValues | [string] | The array of sorted category values for custom sort. 
-| showMovingAverage | boolean | A value indicating whether to show a moving average line overlay for the time based bar chart. 
-| movingAverageLineSymbolProperties | [CIMChartLineSymbolProperties](CIMCharts.md#cimchartlinesymbolproperties) | The line symbol for the moving average. 
-| movingAveragePeriod | long long | A period value for moving average calculation. 
 | timeBinningProperties | [CIMChartTimeBinningProperties](CIMCharts.md#cimcharttimebinningproperties) | The time binning properties for bar category field values. If null, bar series will use unique values to create bar categories. 
 | nullPolicy | [enumeration ChartNullPolicy](CIMCharts.md#enumeration-chartnullpolicy) | The policy for handling missing data. 
 | matchLayerSymbology | boolean | A value indicating whether bar chart should match layer symbology. 
 | showNullCategory | boolean | A value indicating whether to show null category values as a separate category. 
 | nullCategoryFillSymbolProperties | [CIMChartFillSymbolProperties](CIMCharts.md#cimchartfillsymbolproperties) | The fill symbol for the null category. 
 | nullCategoryLabel | string | The label for the null category. 
+
+
+### CIMChartMovingAverageSupport 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| showMovingAverage | boolean | A value indicating whether to show a moving average line overlay. 
+| movingAverageLineSymbolProperties | [CIMChartLineSymbolProperties](CIMCharts.md#cimchartlinesymbolproperties) | The line symbol for the moving average. 
+| movingAveragePeriod | long long | A period value for moving average calculation. 
 
 
 
@@ -552,11 +558,13 @@
 | footer | string | The footer of the chart. 
 | showFooter | boolean | A value indicating whether the chart footer is visible. 
 | theme | string | The theme of the chart. 
+| paletteColorRamp | [ColorRamp](Types.md#colorramp) | The color ramp used to generate the palette colors. 
 | titleText | [CIMChartTextProperties](CIMCharts.md#cimcharttextproperties) | The title symbol properties. 
 | subTitleText | [CIMChartTextProperties](CIMCharts.md#cimcharttextproperties) | The subtitle symbol properties. 
 | footerText | [CIMChartTextProperties](CIMCharts.md#cimcharttextproperties) | The footer symbol properties. 
 | backgroundSymbolProperties | [CIMChartFillSymbolProperties](CIMCharts.md#cimchartfillsymbolproperties) | The background fill symbol properties for the chart. 
-| gridLineSymbolProperties | [CIMChartLineSymbolProperties](CIMCharts.md#cimchartlinesymbolproperties) | The line symbol properties for grid lines. 
+| gridLineSymbolProperties | [CIMChartLineSymbolProperties](CIMCharts.md#cimchartlinesymbolproperties) | The line symbol properties for horizontal grid lines. 
+| verticalGridLineSymbolProperties | [CIMChartLineSymbolProperties](CIMCharts.md#cimchartlinesymbolproperties) | The line symbol properties for vertical grid lines. 
 
 
 
@@ -586,6 +594,7 @@
 | polyline | [double] | Vertices of the polyline guide as an array of x and y coordinates in a row-major order. 
 | valueFromField | string | The field name for calculation of the numeric coordinate of the from value for the guide. This value will be used when guide value type is set to numeric. 
 | valueFromFieldAggregationType | [enumeration ChartAggregationType](CIMCharts.md#enumeration-chartaggregationtype) | The aggregation type for calculation of the numeric coordinate of the from value for the guide. This value will be used when guide value type is set to numeric. 
+| markerSymbolProperties | [CIMChartMarkerSymbolProperties](CIMCharts.md#cimchartmarkersymbolproperties) | The marker symbol properties for the guide. 
 
 
 
@@ -725,6 +734,15 @@
 | multiSeries | boolean | A value indicating whether this series is a multi series. 
 | locations | [[CIMChartLocationDefinition]](CIMCharts.md#cimchartlocationdefinition) | The locations for which data is to be plotted. 
 | fieldExpressions | [[CIMExpressionInfo]](CIMRenderers.md#cimexpressioninfo) | Expression properties for chart series' fields. 
+
+
+### CIMChartMovingAverageSupport 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| showMovingAverage | boolean | A value indicating whether to show a moving average line overlay. 
+| movingAverageLineSymbolProperties | [CIMChartLineSymbolProperties](CIMCharts.md#cimchartlinesymbolproperties) | The line symbol for the moving average. 
+| movingAveragePeriod | long long | A period value for moving average calculation. 
 
 
 ### CIMChartLineSeries 
@@ -1072,7 +1090,10 @@
 | showLoSPoints | boolean | A value indicating whether to draw points from Line Of Sight output. 
 | showLoSConnectingLine | boolean | A value indicating whether to draw a line connecting points from Line Of Sight output. 
 | chain | boolean | A value indicating whether to chain lines together from end to end if their endpoints coincide. 
-| chainingTolerance | double | A threshold value determining whether line endpoints coincide. 
+| chainingTolerance | double | A threshold value determining whether line endpoints coincide in XY. 
+| chainingToleranceZ | double | A threshold value determining whether line endpoints coincide in Z. 
+| profileGraphFields | [string] | The field names in the series. It contains three values (DirectionPreference, ChainingGrouping, and ChainBounds). 
+| flipDirection | boolean | A value indicating whether to flip the direction in which lines and chains are graphed. 
 
 
 

@@ -81,7 +81,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -93,14 +93,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -109,14 +109,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -127,7 +127,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 
@@ -171,7 +171,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | name | string | The name. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| subLayerID | string | The sublayer ID. 
+| subLayerID | string | The unique identifier for this sublayer within its layer. Set by the system and typically a number. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | serviceLayerID | long | Identifier that will be used to identify the layer in server. 
 
@@ -207,7 +207,7 @@
 
 
 ### Enumeration: BarrierWeight
-#### Barrier weights. 
+#### Weights for symbols that are used as barriers to labeling. 
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -336,7 +336,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -348,14 +348,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -404,7 +404,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -416,14 +416,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -483,7 +483,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -495,14 +495,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -549,7 +549,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -561,14 +561,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -577,14 +577,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -595,7 +595,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 
@@ -711,7 +711,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -723,14 +723,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -739,14 +739,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -757,7 +757,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 
@@ -1024,7 +1024,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -1036,14 +1036,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -1078,7 +1078,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | name | string | The name. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| subLayerID | string | The sublayer ID. 
+| subLayerID | string | The unique identifier for this sublayer within its layer. Set by the system and typically a number. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | serviceLayerID | long | Identifier that will be used to identify the layer in server. 
 
@@ -1202,7 +1202,7 @@
 
 
 ## CIMFeatureExtrusion
-#### Represents feature extrusion. 
+#### Represents the extrusion properties of a feature layer. 
 
 
 ### CIMFeatureExtrusion 
@@ -1212,7 +1212,7 @@
 | extrusionType | [enumeration ExtrusionType](CIMEnumerations.md#enumeration-extrusiontype) | The extrusion type. 
 | extrusionExpression | string | The extrusion expression. 
 | extrusionUnit | [LinearUnit](ExternalReferences.md#linearunit) | The feature layer's extrusion unit. 
-| extrusionExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The ExpressionInfo that contains Arcade expression that returns a numeric value. 
+| extrusionExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | An Arcade expression info object for an expression that returns a numeric value. 
 
 
 
@@ -1220,7 +1220,7 @@
 
 
 ## CIMFeatureLayer
-#### Represents feature layer used to draw data from feature classes. A feature layer displays a set of geographic features. A geographic feature represents a real-world object on the earth. It has a spatially- referenced location, stored as a point, line, or polygon, and a set of attributes that describe the feature. Its position is accurate and relevant within a particular scale range. Geographic features are the core spatial data holdings of an organization. They can serve as official records, are used in spatial analysis, and are used as source data for cartography. Feature layers draw their features by using a feature renderer to transform the geographic feature into one or more graphic entities. Feature renderers read the feature's geometry and attribute values to generate graphic entities that graphically depict the feature on a map. 
+#### Represents a layer that draws data from feature classes. A feature layer displays a set of geographic features. A geographic feature represents a real-world object on the earth. It has a spatially-referenced location, stored as a point, line, or polygon, and a set of attributes that describe the feature. Its position is accurate and relevant within a particular scale range. Geographic features are the core spatial data holdings of an organization. They can serve as official records, are used in spatial analysis, and are used as source data for cartography. Feature layers draw their features by using a feature renderer to transform the geographic feature into one or more graphic entities. Feature renderers read the feature's geometry and attribute values to generate graphic entities that graphically depict the feature on a map. 
 
 
 ### CIMDefinition 
@@ -1251,7 +1251,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -1263,14 +1263,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -1279,14 +1279,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -1297,7 +1297,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 
@@ -1357,11 +1357,11 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| definitionExpression | string | The definition expression that can subset the rows in the virtual table. 
-| definitionExpressionName | string | The Name of definition expression. 
+| definitionExpression | string | The definition expression that can subset the rows in the layer or table. 
+| definitionExpressionName | string | The name of the active definition expression. 
 | definitionFilterChoices | [[CIMDefinitionFilter]](CIMLayer.md#cimdefinitionfilter) | The definition filter choices. 
-| displayField | string | The name of the attribute field that will be used as a label that represents each row in the table. The display field must be able to be represented as a string (string or numeric). 
-| editable | boolean | A value indicating whether or not the table can be edited. 
+| displayField | string | The name of the attribute field that will be used as a label that represents each row in the layer or table. The display field must be able to be represented as a string (string or numeric). 
+| editable | boolean | A value indicating whether or not the layer or table can be edited. 
 | relates | [[CIMRelateInfoBase]](CIMVectorLayers.md#cimrelateinfobase) | The relates. 
 | fieldDescriptions | [[CIMFieldDescription]](Types.md#fielddescription) | The field descriptions. Field descriptions for fields may only be written if values are overridden from defaults. 
 | timeFields | [CIMTimeTableDefinition](CIMVectorLayers.md#cimtimetabledefinition) | The time fields. 
@@ -1374,9 +1374,9 @@
 | bindVariables | [[CIMBindVariable]](Types.md#bindvariable) | The bind variables. 
 | subtypeValue | long | The subtype value that should be used in the feature layer definition. This property is honored only when feature layer is a member of SubtypeLayer. 
 | useSubtypeValue | boolean | A value indicating whether or not the SubtypeValue should be used. 
-| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. 
-| selectionSetURI | string | The URI of the selection set for the table. 
-| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer/table used in floor filtering. 
+| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. This property takes precedence over . 
+| selectionSetURI | string | The URI of the selection set for the layer or table. 
+| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer or table used in floor filtering. 
 | routeIDFieldName | string | The route identifier field of a route feature class. This property will only be set for route feature classes, namely line and polyline feature classes that are m-aware. 
 | databaseRelates | [[CIMDatabaseRelateInfo]](CIMVectorLayers.md#cimdatabaserelateinfo) | Overrides for database relationships as relationship info. By default this property is null. This will contain relationship info elements for those database relationships that have overrides. 
 
@@ -1429,7 +1429,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -1441,14 +1441,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -1457,14 +1457,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -1475,7 +1475,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 
@@ -1551,6 +1551,7 @@
 |---------|--------|--------|
 | floorFilterRank | [enumeration FloorFilterRank](CIMVectorLayers.md#enumeration-floorfilterrank) | Rank or "level" at which the layer/table participates in filtering for Indoors or floor-aware layers/tables. 
 | floorField | string | The name of the field that carries the floor value used for floor filtering. 
+| ZFiltering | boolean | A value indicating whether Z value floor filtering will be used. 
 
 
 
@@ -1965,7 +1966,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -1977,14 +1978,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -1993,14 +1994,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -2011,7 +2012,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 
@@ -2119,7 +2120,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -2131,14 +2132,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -2197,7 +2198,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -2209,14 +2210,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -2310,11 +2311,11 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| definitionExpression | string | The definition expression that can subset the rows in the virtual table. 
-| definitionExpressionName | string | The Name of definition expression. 
+| definitionExpression | string | The definition expression that can subset the rows in the layer or table. 
+| definitionExpressionName | string | The name of the active definition expression. 
 | definitionFilterChoices | [[CIMDefinitionFilter]](CIMLayer.md#cimdefinitionfilter) | The definition filter choices. 
-| displayField | string | The name of the attribute field that will be used as a label that represents each row in the table. The display field must be able to be represented as a string (string or numeric). 
-| editable | boolean | A value indicating whether or not the table can be edited. 
+| displayField | string | The name of the attribute field that will be used as a label that represents each row in the layer or table. The display field must be able to be represented as a string (string or numeric). 
+| editable | boolean | A value indicating whether or not the layer or table can be edited. 
 | relates | [[CIMRelateInfoBase]](CIMVectorLayers.md#cimrelateinfobase) | The relates. 
 | fieldDescriptions | [[CIMFieldDescription]](Types.md#fielddescription) | The field descriptions. Field descriptions for fields may only be written if values are overridden from defaults. 
 | timeFields | [CIMTimeTableDefinition](CIMVectorLayers.md#cimtimetabledefinition) | The time fields. 
@@ -2327,9 +2328,9 @@
 | bindVariables | [[CIMBindVariable]](Types.md#bindvariable) | The bind variables. 
 | subtypeValue | long | The subtype value that should be used in the feature layer definition. This property is honored only when feature layer is a member of SubtypeLayer. 
 | useSubtypeValue | boolean | A value indicating whether or not the SubtypeValue should be used. 
-| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. 
-| selectionSetURI | string | The URI of the selection set for the table. 
-| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer/table used in floor filtering. 
+| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. This property takes precedence over . 
+| selectionSetURI | string | The URI of the selection set for the layer or table. 
+| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer or table used in floor filtering. 
 | routeIDFieldName | string | The route identifier field of a route feature class. This property will only be set for route feature classes, namely line and polyline feature classes that are m-aware. 
 | databaseRelates | [[CIMDatabaseRelateInfo]](CIMVectorLayers.md#cimdatabaserelateinfo) | Overrides for database relationships as relationship info. By default this property is null. This will contain relationship info elements for those database relationships that have overrides. 
 
@@ -2689,11 +2690,11 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| definitionExpression | string | The definition expression that can subset the rows in the virtual table. 
-| definitionExpressionName | string | The Name of definition expression. 
+| definitionExpression | string | The definition expression that can subset the rows in the layer or table. 
+| definitionExpressionName | string | The name of the active definition expression. 
 | definitionFilterChoices | [[CIMDefinitionFilter]](CIMLayer.md#cimdefinitionfilter) | The definition filter choices. 
-| displayField | string | The name of the attribute field that will be used as a label that represents each row in the table. The display field must be able to be represented as a string (string or numeric). 
-| editable | boolean | A value indicating whether or not the table can be edited. 
+| displayField | string | The name of the attribute field that will be used as a label that represents each row in the layer or table. The display field must be able to be represented as a string (string or numeric). 
+| editable | boolean | A value indicating whether or not the layer or table can be edited. 
 | relates | [[CIMRelateInfoBase]](CIMVectorLayers.md#cimrelateinfobase) | The relates. 
 | fieldDescriptions | [[CIMFieldDescription]](Types.md#fielddescription) | The field descriptions. Field descriptions for fields may only be written if values are overridden from defaults. 
 | timeFields | [CIMTimeTableDefinition](CIMVectorLayers.md#cimtimetabledefinition) | The time fields. 
@@ -2706,9 +2707,9 @@
 | bindVariables | [[CIMBindVariable]](Types.md#bindvariable) | The bind variables. 
 | subtypeValue | long | The subtype value that should be used in the feature layer definition. This property is honored only when feature layer is a member of SubtypeLayer. 
 | useSubtypeValue | boolean | A value indicating whether or not the SubtypeValue should be used. 
-| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. 
-| selectionSetURI | string | The URI of the selection set for the table. 
-| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer/table used in floor filtering. 
+| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. This property takes precedence over . 
+| selectionSetURI | string | The URI of the selection set for the layer or table. 
+| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer or table used in floor filtering. 
 | routeIDFieldName | string | The route identifier field of a route feature class. This property will only be set for route feature classes, namely line and polyline feature classes that are m-aware. 
 | databaseRelates | [[CIMDatabaseRelateInfo]](CIMVectorLayers.md#cimdatabaserelateinfo) | Overrides for database relationships as relationship info. By default this property is null. This will contain relationship info elements for those database relationships that have overrides. 
 
@@ -2850,7 +2851,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -2862,14 +2863,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -2878,14 +2879,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -2896,7 +2897,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 
@@ -2957,11 +2958,11 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| definitionExpression | string | The definition expression that can subset the rows in the virtual table. 
-| definitionExpressionName | string | The Name of definition expression. 
+| definitionExpression | string | The definition expression that can subset the rows in the layer or table. 
+| definitionExpressionName | string | The name of the active definition expression. 
 | definitionFilterChoices | [[CIMDefinitionFilter]](CIMLayer.md#cimdefinitionfilter) | The definition filter choices. 
-| displayField | string | The name of the attribute field that will be used as a label that represents each row in the table. The display field must be able to be represented as a string (string or numeric). 
-| editable | boolean | A value indicating whether or not the table can be edited. 
+| displayField | string | The name of the attribute field that will be used as a label that represents each row in the layer or table. The display field must be able to be represented as a string (string or numeric). 
+| editable | boolean | A value indicating whether or not the layer or table can be edited. 
 | relates | [[CIMRelateInfoBase]](CIMVectorLayers.md#cimrelateinfobase) | The relates. 
 | fieldDescriptions | [[CIMFieldDescription]](Types.md#fielddescription) | The field descriptions. Field descriptions for fields may only be written if values are overridden from defaults. 
 | timeFields | [CIMTimeTableDefinition](CIMVectorLayers.md#cimtimetabledefinition) | The time fields. 
@@ -2974,9 +2975,9 @@
 | bindVariables | [[CIMBindVariable]](Types.md#bindvariable) | The bind variables. 
 | subtypeValue | long | The subtype value that should be used in the feature layer definition. This property is honored only when feature layer is a member of SubtypeLayer. 
 | useSubtypeValue | boolean | A value indicating whether or not the SubtypeValue should be used. 
-| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. 
-| selectionSetURI | string | The URI of the selection set for the table. 
-| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer/table used in floor filtering. 
+| displayExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression information used for coming up with a string that represents a row or a feature. This property takes precedence over . 
+| selectionSetURI | string | The URI of the selection set for the layer or table. 
+| floorAwareTableProperties | [CIMFloorAwareTableProperties](CIMVectorLayers.md#cimfloorawaretableproperties) | Floor-aware properties for the layer or table used in floor filtering. 
 | routeIDFieldName | string | The route identifier field of a route feature class. This property will only be set for route feature classes, namely line and polyline feature classes that are m-aware. 
 | databaseRelates | [[CIMDatabaseRelateInfo]](CIMVectorLayers.md#cimdatabaserelateinfo) | Overrides for database relationships as relationship info. By default this property is null. This will contain relationship info elements for those database relationships that have overrides. 
 
@@ -3304,7 +3305,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -3316,14 +3317,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -3412,7 +3413,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -3424,14 +3425,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -3504,6 +3505,7 @@
 | NITF| 25| NITF connection. 
 | VPF| 26| VPF. 
 | Parquet| 27| Parquet. 
+| FileKnowledgeGraph| 28| File Knowledge Graph 
 
 
 

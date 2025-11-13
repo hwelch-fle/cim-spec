@@ -69,6 +69,7 @@
 |---------|--------|--------|
 | fields | [string] | The fields. 
 | normalizeField | string | The normalization field. 
+| altText | string | The alt text. 
 | caption | string | The caption. 
 | title | string | The title. 
 | maximumAxisValue | double | The maximum axis value. 
@@ -106,6 +107,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
+| altText | string | The alt text. 
 | caption | string | The caption. 
 | title | string | The title. 
 | mediaInfos | [[CIMMediaInfo]](Types.md#mediainfo) | The array of media infos. 
@@ -138,6 +140,7 @@
 |---------|--------|--------|
 | fields | [string] | The fields. 
 | normalizeField | string | The normalization field. 
+| altText | string | The alt text. 
 | caption | string | The caption. 
 | title | string | The title. 
 | maximumAxisValue | double | The maximum axis value. 
@@ -205,6 +208,7 @@
 |---------|--------|--------|
 | sourceURL | string | The source URL. 
 | linkURL | string | The link URL. 
+| altText | string | The alt text. 
 | caption | string | The caption. 
 | title | string | The title. 
 
@@ -236,6 +240,7 @@
 |---------|--------|--------|
 | fields | [string] | The fields. 
 | normalizeField | string | The normalization field. 
+| altText | string | The alt text. 
 | caption | string | The caption. 
 | title | string | The title. 
 | maximumAxisValue | double | The maximum axis value. 
@@ -275,6 +280,7 @@
 |---------|--------|--------|
 | fields | [string] | The fields. 
 | normalizeField | string | The normalization field. 
+| altText | string | The alt text. 
 | caption | string | The caption. 
 | title | string | The title. 
 | maximumAxisValue | double | The maximum axis value. 
@@ -341,6 +347,39 @@
 | borderColor | [Color](Types.md#color) | The border color. 
 
 
+
+
+
+
+## CIMPopupUtilityNetworkAssociation
+#### Represents pop-up utility network association. 
+
+
+### CIMPopupUtilityNetworkAssociation 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| caption | string | The association type. 
+| associationType | [enumeration PopupUtilityNetworkAssociationType](CIMPopup.md#enumeration-popuputilitynetworkassociationtype) | The caption. 
+| title | string | The title. 
+| associatedNetworkSourceID | long long | The associated network source id. 
+| associatedAssetGroupID | long long | The associated asset group id. 
+| associatedAssetTypeID | long long | The associated asset type id. 
+
+
+
+
+
+### Enumeration: PopupUtilityNetworkAssociationType
+#### Pop-up utility network association types. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Attachment| 0| Attachment 
+| Connectivity| 1| Connectivity. 
+| Container| 2| Container. 
+| Content| 3| Content. 
+| Structure| 4| Structure. 
 
 
 
@@ -430,6 +469,37 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | text | string | The text. 
+
+
+
+
+
+
+## CIMUtilityNetworkAssociationsMediaInfo
+#### Represents utility network associations media info. 
+
+
+### CIMMediaInfo 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| row | long | The row. 
+| column | long | The column. 
+| refreshRate | double | The amount of time in RefreshRateUnit to wait between refreshing the media info. 
+| refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the media. 
+| rowSpan | long | The row span. 
+| columnSpan | long | The column span. 
+| isCarousel | boolean | A value indicating whether this is a carousel element. Deprecated at 3.2. 
+
+
+### CIMUtilityNetworkAssociationsMediaInfo 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| caption | string | The caption. 
+| title | string | The title. 
+| displayCount | long | The maximum number of features to display per layer. 
+| associations | [[CIMPopupUtilityNetworkAssociation]](CIMPopup.md#cimpopuputilitynetworkassociation) | The array of utility network associations. 
 
 
 

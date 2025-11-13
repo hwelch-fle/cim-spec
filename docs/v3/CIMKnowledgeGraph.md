@@ -1,13 +1,30 @@
 
 
+### Enumeration: CentralityMeasure
+#### Defines a kind of centrality measure. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Degree| 0| Degree measure. 
+| InDegree| 1| InDegree measure. 
+| OutDegree| 2| OutDegree measure. 
+| Eigenvector| 3| Eigenvector measure. 
+| PageRank| 4| PageRank measure. 
+| Betweenness| 5| Betweenness measure. Betweenness is a shortest paths based measure. Computing this centrality measure may be slow on large graphs. 
+| Closeness| 6| Closeness measure. Closeness is a shortest paths based measure. Computing this centrality measure may be slow on large graphs. 
+| Harmonic| 7| Harmonic measure. Harmonic is a shortest paths based measure. Computing this centrality measure may be slow on large graphs. 
+| Coreness| 8| Coreness measure. This measure is only compatible with . 
+
+
+
 ### Enumeration: CentralityRelationshipInterpretation
-#### Specifies the way relationships are interpreted for centrality computations. 
+#### Specifies the way relationships are interpreted for centrality computations. . 
 
 |Property | Value | Description | 
 |---------|--------|--------|
 | Undirected| 0| Relationships are considered to be undirected. 
-| Directed| 1| Relationships are considered to be directed. 
-| Reversed| 2| Relationships are considered to be directed and their direction is reversed. 
+| Directed| 1| Relationships are considered to be directed. Not compatible with instead to compute this measure). 
+| Reversed| 2| Relationships are considered to be directed and their direction is reversed. Not compatible with instead to compute this measure). 
 
 
 
@@ -48,6 +65,15 @@
 
 
 
+### Enumeration: FFPExecutionWarning
+#### Describes Filtered Find Paths execution warnings. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| AtLeastOneCostIsStrictlyNegative| 0| At least one strictly negative cost was found during pathfinding, and it was replaced by a positive cost according to . 
+
+
+
 
 ## CIMFilteredFindPathsConfiguration
 #### Represents a Knowledge Graph Filtered Find Paths Configuration. 
@@ -58,15 +84,21 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | name | string | The name of the configuration. 
+| closedPathPolicy | [enumeration KGClosedPathPolicy](CIMKnowledgeGraph.md#enumeration-kgclosedpathpolicy) | The closed path policy, i.e whether we allow, forbid, or require that the start and end vertices of a path are equal. When the value is KGClosedPathPolicy.Require, the DestinationEntities field is ignored and destinations entities are the same as origin entities. 
 | originEntities | [[CIMFilteredFindPathsEntity]](CIMKnowledgeGraph.md#cimfilteredfindpathsentity) | The origin entities. 
-| destinationEntities | [[CIMFilteredFindPathsEntity]](CIMKnowledgeGraph.md#cimfilteredfindpathsentity) | The destination entities. 
+| destinationEntities | [[CIMFilteredFindPathsEntity]](CIMKnowledgeGraph.md#cimfilteredfindpathsentity) | The destination entities. This field is ignored when ClosedPathPolicy is KGClosedPathPolicy.Require. 
 | pathFilters | [[CIMFilteredFindPathsPathFilter]](CIMKnowledgeGraph.md#cimfilteredfindpathspathfilter) | The path filters. 
 | defaultTraversalDirectionType | [enumeration KGTraversalDirectionType](CIMKnowledgeGraph.md#enumeration-kgtraversaldirectiontype) | The default traversal direction which is used for any relationship type that is not defined in the traversal directions list. 
 | traversalDirections | [[CIMKGTraversalDirection]](CIMKnowledgeGraph.md#cimkgtraversaldirection) | The traversal directions. 
 | entityUsage | [enumeration FilteredFindPathsEntityUsage](CIMKnowledgeGraph.md#enumeration-filteredfindpathsentityusage) | The usage of origin/destination entities in the filtered find paths algorithm. 
-| pathMode | [enumeration KGPathMode](CIMKnowledgeGraph.md#enumeration-kgpathmode) | Whether the filtered find paths algorithm searches for shortest paths or for all paths. 
-| minPathLength | long | The min path length. 
-| maxPathLength | long | The max path length. The default of 0 means the value is unlimited. 
+| pathMode | [enumeration KGPathMode](CIMKnowledgeGraph.md#enumeration-kgpathmode) | Whether the filtered find paths algorithm searches for shortest paths, for lowest cost paths or for all paths. 
+| relationshipCostProperty | string | The name of the property representing the cost of a relationship. If a relationship lacks this property, the property is not of a numeric type, or the property value is null, the cost of the relationship will be . Only positive costs are supported. Any strictly negative cost will be converted to a positive cost based on . 
+| defaultRelationshipCost | double | The default relationship cost. If the default relationship cost is negative, it is replaced by zero. 
+| negativeCostBehaviour | [enumeration KGNegativeCostBehaviour](CIMKnowledgeGraph.md#enumeration-kgnegativecostbehaviour) | The behaviour when a negative cost is found. 
+| minPathLength | long | The minimum path length. 
+| maxPathLength | long | The maximum path length. The default of 0 means the value is unlimited. 
+| minPathCost | double | The minimum path cost. The cost of a path is the sum of the costs of its relationships. 
+| maxPathCost | double | The maximum path cost. The maximum cost is only enforced when the value is positive. The cost of a path is the sum of the costs of its relationships. 
 | maxCountPaths | long | The max number of paths the filtered find paths algorithm returns. This parameter is only taken into account when PathMode is KGPathMode.All. 
 | timeFilter | [CIMKGTimeFilter](CIMKnowledgeGraph.md#cimkgtimefilter) | The time filter. 
 
@@ -150,6 +182,7 @@
 |---------|--------|--------|
 | error | [CIMFilteredFindPathsError](CIMKnowledgeGraph.md#cimfilteredfindpathserror) | The error. An error occurred if this object is not null. 
 | configurationWarning | [enumeration FFPConfigurationWarning](CIMKnowledgeGraph.md#enumeration-ffpconfigurationwarning) | The configuration warning. When no path has been found, and the value is different from FFPConfigurationWarning.None, it is likely that the user made an unintended mistake in the configuration. 
+| executionWarnings | [[CIMFFPExecutionWarning]](CIMKnowledgeGraph.md#cimffpexecutionwarning) | The execution warnings. 
 | statistics | [CIMFilteredFindPathsStatistics](CIMKnowledgeGraph.md#cimfilteredfindpathsstatistics) | The statistics of the Filtered Find Paths search. 
 | paths | [CIMKGPaths](CIMKnowledgeGraph.md#cimkgpaths) | The paths found by the Filtered Find Paths search. 
 
@@ -173,6 +206,17 @@
 | countWaypointsExpansionQueries | long long | The count of expansion queries that were done to discover the neighborhood of entity or relationship waypoints. 
 
 
+
+
+
+### Enumeration: KGClosedPathPolicy
+#### The closed path policy, i.e whether we allow, forbid, or require that result paths are closed. A path is closed when the start and end vertices of the path are the same. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Forbid| 0| Forbid closed paths. 
+| Allow| 1| Allow closed paths. 
+| Require| 2| Require that all paths are closed. 
 
 
 
@@ -377,6 +421,38 @@
 
 
 
+### Enumeration: KGFilterType
+#### Specifies the filter type. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Include| 0| Entities or relationships represented by the filter are included. 
+| Exclude| 1| Entities or relationships represented by the filter are excluded. 
+
+
+
+### Enumeration: KGMergePropertiesWithMissingData
+#### Specifies the behavior when merge properties have missing data. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| DoNotCreateOrMerge| 0| Do not create or merge the item if any merge property has missing data. 
+| CreateButDoNotMerge| 1| Create the item using the merge properties with missing data, but do not merge with it. 
+| CreateAndMerge| 2| Create or merge the item using the merge properties with missing data. 
+
+
+
+### Enumeration: KGNegativeCostBehaviour
+#### Defines the behaviour when a strictly negative cost is found, and only positive costs are supported. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| ReplaceByZero| 0| Replace the cost by zero. 
+| ReplaceByDefaultCostValue| 1| Replace the cost by the default cost value. 
+| ReplaceByAbsoluteValue| 2| Replace the cost by the absolute value of the cost. 
+
+
+
 ### Enumeration: KGPathFilterItemType
 #### Specifies whether the path filter is applied to an entity/entity type or a relationship/relationship type. 
 
@@ -411,6 +487,7 @@
 | DurativeEventHasNoTime| 4| A durative event has a null start time and a null end time. 
 | DurativeEventHasOneMissingTime| 5| A durative event has either a null start time or a null end time. 
 | DurativeEventHasSwappedTimes| 6| A durative event start time is strictly greater than the end time. 
+| PropertyFilterSyntaxError| 7| A property filter predicate has a syntax error. 
 
 
 
@@ -419,8 +496,9 @@
 
 |Property | Value | Description | 
 |---------|--------|--------|
-| Shortest| 0| The filtered find paths algorithm only searches for the shortest paths. 
+| Shortest| 0| The filtered find paths algorithm only searches for the shortest paths. The length of a path is the count of relationships in the path. 
 | All| 1| The filtered find paths algorithm searches for all paths. 
+| LowestCost| 2| The filtered find paths algorithm only searches for the lowest cost paths. The cost of a path is the sum of the costs of its relationships. 
 
 
 
@@ -437,7 +515,7 @@
 
 
 ## CIMKGPaths
-#### Represents the paths found by the Filtered Find Paths search. We use a memory-optimized representation to avoid storing redundant information because it is often the case that a path shares some entities and relationships with many other paths, especially if the Filtered Find Paths configuration uses 'KGPathMode.All'. Definition: a relationship group contains Knowledge Graph relationships associated to a single edge in the local graph. Paths are encoded this way: The path 'p' uses relationships groups PathsBuffer[PathsEndIndex[p-1] .. PathsEndIndex[p]], and: - the origin of the first relationship group is the origin of the path - the destination of the last relationship group is the destination of the path A path of length zero (with entity 'e') has a single relationship group containing no relationship and where the origin and the destination are 'e'. The relationships group 'g' has origin EntitiesUIDs[RelationshipsGroupsFrom[g]] and destination EntitiesUIDs[RelationshipsGroupsTo[g]]. Its relationships are RelationshipsGroupsUIDsBuffer[RelationshipsGroupsUIDsEndIndex[g-1] .. RelationshipsGroupsUIDsEndIndex[g]] if RelationshipsFrom[i] >= 0, relationship RelationshipsGroupsUIDsBuffer[i] has origin EntitiesUIDs[RelationshipsFrom[i]] else the relationship has been deleted after pathfinding. if RelationshipsTo[i] >= 0, relationship RelationshipsGroupsUIDsBuffer[i] has destination EntitiesUIDs[RelationshipsTo[i]] else the relationship has been deleted after pathfinding. Note that origin and destination of a relationship may not match origin and destination of the relationship group because the relationship can be traversed backwards. 
+#### Represents the paths found by the Filtered Find Paths search. We use a memory-optimized representation to avoid storing redundant information because it is often the case that a path shares some entities and relationships with many other paths, especially if the Filtered Find Paths configuration uses 'KGPathMode.All'. Definition: a relationship group contains Knowledge Graph relationships associated to a single edge in the local graph. Paths are encoded this way: The path 'p' uses relationships groups PathsBuffer[PathsEndIndex[p-1] .. PathsEndIndex[p]], and: - the origin of the first relationship group is the origin of the path - the destination of the last relationship group is the destination of the path A path of length zero (with entity 'e') has a single relationship group containing no relationship and where the origin and the destination are 'e'. The relationships group 'g' has origin EntitiesUIDs[RelationshipsGroupsFrom[g]], destination EntitiesUIDs[RelationshipsGroupsTo[g]]. Its relationships are RelationshipsGroupsUIDsBuffer[RelationshipsGroupsUIDsEndIndex[g-1] .. RelationshipsGroupsUIDsEndIndex[g]]. The relationship RelationshipsGroupsUIDsBuffer[i] has a cost RelationshipsCosts[i]. if RelationshipsFrom[i] >= 0, relationship RelationshipsGroupsUIDsBuffer[i] has origin EntitiesUIDs[RelationshipsFrom[i]] else the relationship has been deleted after pathfinding. if RelationshipsTo[i] >= 0, relationship RelationshipsGroupsUIDsBuffer[i] has destination EntitiesUIDs[RelationshipsTo[i]] else the relationship has been deleted after pathfinding. Note that origin and destination of a relationship may not match origin and destination of the relationship group because the relationship can be traversed backwards. 
 
 
 ### CIMKGPaths 
@@ -451,6 +529,7 @@
 | relationshipTypes | [long long] | A list parallel to RelationshipsGroupsUIDsBuffer representing relationship type indices. if RelationshipTypes[i] >= 0, RelationshipsGroupsUIDsBuffer[i] has type IndexedRelationshipTypes[RelationshipTypes[i]] else the relationship has been deleted after the find path operation. 
 | indexedRelationshipTypes | [string] | The list of relationship types, indexed by 'RelationshipTypes'. 
 | relationshipsGroupsUIDsEndIndex | [long long] | The list of relationships groups relationship end indices (indexes into 'RelationshipsGroupsUIDsBuffer'). Values must be positive. 
+| relationshipsCosts | [double] | The list of relationships cost. 
 | relationshipsGroupsFrom | [long long] | The list of relationships groups origin entity index (indexes into 'EntitiesUIDs'). Values must be positive. 
 | relationshipsGroupsTo | [long long] | The list of relationships groups destination entity index (indexes into 'EntitiesUIDs'). Values must be positive. 
 | relationshipsFrom | [long long] | The list of relationships origin entity index (indexes into 'EntitiesUIDs'). 
@@ -505,17 +584,17 @@
 
 
 ## CIMKGTimeFilter
-#### Represents a Knowledge Graph Time Filter. 
+#### A Knowledge Graph Time Filter represents a set of time constraints that apply to the "events" of a path. "Events" are entities and relationships of the path that have a matching A CIMKGEventDefinition can either be durative (one property represents the start time, and one property representing the end time) or "punctual" (a single property represents the time at which the event occurs). The time filter represents three kinds of time constraints: - constraints that are applied to all events of the path ( - constraints that are applied only to durative events of the path ( - constraints that are applied to all pairs of consecutive events of the path ( The time filter also specifies the behavior when an event has missing or ill-formed time information (). 
 
 
 ### CIMKGTimeFilter 
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| enabled | boolean | A value indicating whether the filter is enabled. Note that having an empty list of event definitions is equivalent to not enabling the time filter, however since "Enable time filter" is a separate setting in the UI we have this member. 
-| KGPathTimeFlow | [enumeration KGPathTimeFlow](CIMKnowledgeGraph.md#enumeration-kgpathtimeflow) | A value indicating how time should flow along the result paths. 
+| enabled | boolean | A value indicating whether the filter is enabled. Having an empty list of event definitions in is equivalent to not enabling the time filter. 
+| KGPathTimeFlow | [enumeration KGPathTimeFlow](CIMKnowledgeGraph.md#enumeration-kgpathtimeflow) | A value indicating how time should flow along the result paths. The - When time flows forward, for each pair of consecutive events, the event which is closer to the path origin must be a valid predecessor of the event which is closer to the path destination. - When time flows backward, for each pair of consecutive events, the event which is closer to the path origin must be a valid successor of the event which is closer to the path destination. - When the time flow is not constrained, for each pair of consecutive events, the event which is closer to the path origin must either be a valid successor or a valid predecessor of the event which is closer to the path destination. 
 | timeWindow | [CIMKGTimeWindow](CIMKnowledgeGraph.md#cimkgtimewindow) | The time window. Any event that has a time span not intersecting the time window will be excluded. 
-| eventsDefinitions | [CIMKGEventsDefinitions](CIMKnowledgeGraph.md#cimkgeventsdefinitions) | The events definitions. 
+| eventsDefinitions | [CIMKGEventsDefinitions](CIMKnowledgeGraph.md#cimkgeventsdefinitions) | The events definitions. If no event is defined, it is as if the time filter was disabled. The time filter will have no effect on path finding. 
 | durativeEventsDurationConstraint | [CIMKGDurativeEventsDurationConstraint](CIMKnowledgeGraph.md#cimkgdurativeeventsdurationconstraint) | The constraint on durative events duration. 
 | eventErrorHandling | [CIMKGEventErrorHandling](CIMKnowledgeGraph.md#cimkgeventerrorhandling) | A value indicating how event data errors should be handled. 
 | consecutiveEventsRestrictions | [CIMKGConsecutiveEventsRestrictions](CIMKnowledgeGraph.md#cimkgconsecutiveeventsrestrictions) | The consecutive events restrictions. 
@@ -590,6 +669,27 @@
 
 
 
+## CIMKnowledgeGraphCentralityConfiguration
+#### Represents the Centrality computation options for a Knowledge Graph. Several measures of centrality are supported: Degree, Indegree, Outdegree, PageRank, Eigenvector, Coreness, Betweenness, Closeness and Harmonic. These measures fall in two broad categories: degree based measures are Degree, Indegree, Outdegree, PageRank, Eigenvector and Coreness while shortest paths based measures are Betweenness, Closeness and Harmonic. The "importance" relationship weight is taken into account in degree based measures: a relationship with higher importance will increase the centrality scores of nearby related entities. The "cost" relationship weight is taken into account in shortest paths based measures: a relationship with higher cost will decrease the centrality scores of nearby related entities. 
+
+
+### CIMKnowledgeGraphCentralityConfiguration 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| relationshipsInterpretation | [enumeration CentralityRelationshipInterpretation](CIMKnowledgeGraph.md#enumeration-centralityrelationshipinterpretation) | The relationships interpretation. 
+| defaultRelationshipImportance | double | The default importance of a relationship. 
+| relationshipImportanceProperty | string | The property defining the importance of a relationship. When the string is empty, or the property doesn't exist, or the property value is null, the default relationship importance is used instead. Negative property values are ignored and replaced by zero. 
+| defaultRelationshipCost | double | The default cost of a relationship. 
+| relationshipCostProperty | string | The property defining the cost of a relationship. When the string is empty, or the property doesn't exist, or the property value is null, the default relationship cost is used instead. Negative property values are ignored and replaced by zero. 
+| multiedgeFactor | double | The multiedge factor. Acceptable values lie in [0, 1]. In centrality computations, we reduce parallel relationships of a graph to a single edge. The computation of the importance of the single edge depends on the value of MultiedgeFactor. If MultiedgeFactor is 0, the importance of the single edge is the average of parallel relationships. If MultiedgeFactor is 1, the importance of the single edge is the sum of importances of parallel relationships. For values of MultiedgeFactor between 0 and 1, the importance of the single edge is linearly interpolated. 
+| normalization | [enumeration CentralityScoresNormalization](CIMKnowledgeGraph.md#enumeration-centralityscoresnormalization) | The scores normalization. 
+
+
+
+
+
+
 ## CIMKnowledgeGraphCoordinatePropertyValue
 #### Represents a coordinate property value. 
 
@@ -656,6 +756,7 @@
 | name | string | The name of the Data Loading Configuration. Names are expected to be unique within an Investigation. 
 | entities | [[CIMKnowledgeGraphDataLoadingEntity]](CIMKnowledgeGraph.md#cimknowledgegraphdataloadingentity) | The entities. 
 | relationships | [[CIMKnowledgeGraphDataLoadingRelationship]](CIMKnowledgeGraph.md#cimknowledgegraphdataloadingrelationship) | The relationships. 
+| missingDataOptions | [CIMKnowledgeGraphDataLoadingMissingDataOptions](CIMKnowledgeGraph.md#cimknowledgegraphdataloadingmissingdataoptions) | The options for missing data. 
 
 
 
@@ -674,8 +775,26 @@
 | entityType | string | The type of the entity. 
 | typeIsFieldName | boolean | A value indicating whether the Type property is a name itself or the name of a field. 
 | entityTypeExpression | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression which is used to generate the entity type of this entity. This property takes precedence over the TypeIsFieldName and EntityType properties. If the EntityTypeExpression property is not null, the EntityType is generated from the script defined in the expression object. If the EntityTypeExpression property is null, the value of the EntityType property is interpreted based on the TypeIsFieldName property. 
+| multipleTypeLookup | [CIMKnowledgeGraphMultipleTypeLookup](CIMKnowledgeGraph.md#cimknowledgegraphmultipletypelookup) | A value indicating whether this Entity should be found by lookup. This property takes precedence over EntityType and EntityTypeExpression. When defined, the entity will be found by searching the specified types and property values. 
 | properties | [[CIMKnowledgeGraphProperty]](Types.md#knowledgegraphproperty) | The properties of this entity. 
 | merge | boolean | A value indicating whether this entity should be merged. 
+
+
+
+
+
+
+## CIMKnowledgeGraphDataLoadingMissingDataOptions
+#### Represents the options for handling missing data in a Knowledge Graph Data Loading Configuration. 
+
+
+### CIMKnowledgeGraphDataLoadingMissingDataOptions 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| allowCreationWhenAllDataMissing | boolean | A value indicating whether to create entities or relationships with all missing data. 
+| overwriteWithMissingValuesWhenMerging | boolean | A value indicating whether to overwrite existing values with missing values when merging. 
+| mergePropertiesWithMissingData | [enumeration KGMergePropertiesWithMissingData](CIMKnowledgeGraph.md#enumeration-kgmergepropertieswithmissingdata) | A value indicating how to handle merge properties with missing data. 
 
 
 
@@ -874,7 +993,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -886,14 +1005,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -918,7 +1037,7 @@
 
 
 ## CIMKnowledgeGraphLinkChartCentralityConfiguration
-#### Represents the Centrality computation options in a Knowledge Graph Link Chart. Several measures of centrality are supported: Degree, Indegree, Outdegree, PageRank, Eigenvector, Betweenness, Closeness and Harmonic. These measures fall in two broad categories: degree based measures are Degree, Indegree, Outdegree, PageRank, and Eigenvector while shortest paths based measures are Betweenness, Closeness and Harmonic. The "importance" relationship weight is taken into account in degree based measures: a relationship with higher importance will increase the centrality scores of nearby related entities. The "cost" relationship weight is taken into account in shortest paths based measures: a relationship with higher cost will decrease the centrality scores of nearby related entities. 
+#### Represents the Centrality computation options in a Knowledge Graph Link Chart. Several measures of centrality are supported: Degree, Indegree, Outdegree, PageRank, Eigenvector, Coreness, Betweenness, Closeness and Harmonic. These measures fall in two broad categories: degree based measures are Degree, Indegree, Outdegree, PageRank, Eigenvector and Coreness while shortest paths based measures are Betweenness, Closeness and Harmonic. The "importance" relationship weight is taken into account in degree based measures: a relationship with higher importance will increase the centrality scores of nearby related entities. The "cost" relationship weight is taken into account in shortest paths based measures: a relationship with higher cost will decrease the centrality scores of nearby related entities. 
 
 
 ### CIMKnowledgeGraphLinkChartCentralityConfiguration 
@@ -926,7 +1045,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | relationshipsInterpretation | [enumeration CentralityRelationshipInterpretation](CIMKnowledgeGraph.md#enumeration-centralityrelationshipinterpretation) | The relationships interpretation. 
-| computeShortestPathsBasedMeasures | boolean | A value indicating whether the shortest paths based measures will be computed. This setting exists because shortest paths based measures can be costly to compute for larger link charts. 
+| computeShortestPathsBasedMeasures | boolean | A value indicating whether the shortest paths based measures will be computed. When true, all measures are computed. When false, all measures except betweenness, Closeness, Harmonic are computed. This setting exists because shortest paths based measures can be costly to compute for larger graphs. 
 | includeDocumentEntities | boolean | A value indicating whether entities of type 'Document' are considered to be part of the graph for centrality computations. 
 | defaultRelationshipImportance | double | The default importance of a relationship. 
 | relationshipImportanceProperty | string | The property defining the importance of a relationship. When the string is empty, or the property doesn't exist, or the property value is null, the default relationship importance is used instead. Negative property values are ignored and replaced by zero. 
@@ -963,6 +1082,68 @@
 
 
 
+## CIMKnowledgeGraphMultipleTypeLookup
+#### Contains the information defining the multiple type entity lookup. 
+
+
+### CIMKnowledgeGraphMultipleTypeLookup 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| typeLookups | [[CIMKnowledgeGraphTypeLookup]](CIMKnowledgeGraph.md#cimknowledgegraphtypelookup) | The information required to look up an entity by matching specific property values within specific types. 
+| defaultTypeName | string | The default type name for the multiple type lookup. If the lookup fails, this type will be used to create a new entity. When empty or blank, if the lookup fails, nothing will be created. 
+
+
+
+
+
+
+## CIMKnowledgeGraphNamedTypeFilterByInstances
+#### Represents a Knowledge Graph named type filter by instances. 
+
+
+### CIMKnowledgeGraphNamedTypeFilter 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| filterType | [enumeration KGFilterType](CIMKnowledgeGraph.md#enumeration-kgfiltertype) | The filter type, i.e whether to include or exclude the instances represented by the filter. 
+| namedType | string | The named type (an entity type or a relationship type). 
+
+
+### CIMKnowledgeGraphNamedTypeFilterByInstances 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| instancesIDs | [[any]]| The ids of the entity/relationship instances represented by the filter. Use to include or exclude these instances. 
+
+
+
+
+
+
+## CIMKnowledgeGraphNamedTypeFilterByType
+#### Represents a Knowledge Graph named type filter by type with optional property filter predicate. 
+
+
+### CIMKnowledgeGraphNamedTypeFilter 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| filterType | [enumeration KGFilterType](CIMKnowledgeGraph.md#enumeration-kgfiltertype) | The filter type, i.e whether to include or exclude the instances represented by the filter. 
+| namedType | string | The named type (an entity type or a relationship type). 
+
+
+### CIMKnowledgeGraphNamedTypeFilterByType 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| propertyFilterPredicate | string | The property filter predicate (openCypher syntax) associated with the filter. When the property filter predicate is empty, the filter represents all instances of the named type. When the property filter predicate is not empty, the filter represents the instances of the named type that match the predicate. Use to include or exclude these instances. 
+
+
+
+
+
+
 ## CIMKnowledgeGraphNonspatialProperty
 #### Represents a Knowledge Graph Data Loading Property used by entities and relationships. 
 
@@ -975,6 +1156,7 @@
 | propertyType | [enumeration esriFieldType](ExternalReferences.md#enumeration-esrifieldtype) | The type of the property. 
 | value | [KnowledgeGraphPropertyValue](Types.md#knowledgegraphpropertyvalue) | The value which is to be imported. Value will have to be tested for type in order to properly perform the import. 
 | merge | boolean | A value indicating whether this property should be used to determine a merge. 
+| missingDataValue | [CIMKnowledgeGraphFixedPropertyValue](CIMKnowledgeGraph.md#cimknowledgegraphfixedpropertyvalue) | The value to use when import data is missing. This value is used when the Value property results in a null or empty value. 
 
 
 ### CIMKnowledgeGraphNonspatialProperty 
@@ -1049,6 +1231,70 @@
 
 
 
+## CIMKnowledgeGraphSpatialMergeIntersect
+#### Represents merging geometries by intersection. 
+
+
+### CIMKnowledgeGraphSpatialMerge 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+
+
+### CIMKnowledgeGraphSpatialMergeIntersect 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+
+
+
+
+
+
+## CIMKnowledgeGraphSpatialMergeWithinDistance
+#### Represents merging geometries within a specified distance. The properties define a buffer which is used to perform an intersection. The buffers are always created in the coordinate system of the import data. If the import data has a geographic coordinate system, and the DistanceUnit is a Linear Unit, geodesic buffers will be created. Otherwise, planar buffers will be created. 
+
+
+### CIMKnowledgeGraphSpatialMerge 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+
+
+### CIMKnowledgeGraphSpatialMergeWithinDistance 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| distance | double | The distance value in terms of the DistanceUnit. 
+| distanceUnit | [Unit](ExternalReferences.md#unit) | The distance unit of the Distance property. 
+
+
+
+
+
+
+## CIMKnowledgeGraphSpatialMergeWithinDistanceGeodesic
+#### Represents merging geometries within a specified distance. The properties define a buffer which is used to perform an intersection. The buffers are always created in the coordinate system of the import data. The buffers will always be geodesic, using shape preservation (densification). 
+
+
+### CIMKnowledgeGraphSpatialMerge 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+
+
+### CIMKnowledgeGraphSpatialMergeWithinDistanceGeodesic 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| distance | double | The distance value in terms of the DistanceUnit. 
+| distanceUnit | [Unit](ExternalReferences.md#unit) | The distance unit of the Distance property. 
+
+
+
+
+
+
 ## CIMKnowledgeGraphSpatialProperty
 #### Represents a Spatial Knowledge Graph Data Loading Property used for entities. This class is expected to be used only when the Type of property is esriFieldTypeGeometry. 
 
@@ -1061,6 +1307,7 @@
 | propertyType | [enumeration esriFieldType](ExternalReferences.md#enumeration-esrifieldtype) | The type of the property. 
 | value | [KnowledgeGraphPropertyValue](Types.md#knowledgegraphpropertyvalue) | The value which is to be imported. Value will have to be tested for type in order to properly perform the import. 
 | merge | boolean | A value indicating whether this property should be used to determine a merge. 
+| missingDataValue | [CIMKnowledgeGraphFixedPropertyValue](CIMKnowledgeGraph.md#cimknowledgegraphfixedpropertyvalue) | The value to use when import data is missing. This value is used when the Value property results in a null or empty value. 
 
 
 ### CIMKnowledgeGraphSpatialProperty 
@@ -1069,6 +1316,24 @@
 |---------|--------|--------|
 | spatialReference | [SpatialReference](ExternalReferences.md#spatialreference) | The spatial reference of the property. 
 | geometryType | [enumeration esriGeometryType](ExternalReferences.md#enumeration-esrigeometrytype) | The geometry type of the property. Currently, only allowed values: - esriGeometryPoint - esriGeometryMultipoint - esriGeometryPolyline - esriGeometryPolygon Others will be allowed in future. 
+| keepAllWhenMerging | boolean | A value indicating whether all geometry values should be kept when merging. Only applies when GeometryType is a multi-part geometry. 
+| spatialMerge | [KnowledgeGraphSpatialMerge](Types.md#knowledgegraphspatialmerge) | A value describing how to handle spatial merge. If not set, there is no spatial merge. 
+
+
+
+
+
+
+## CIMKnowledgeGraphSubGraph
+#### Represents a subgraph of a Knowledge Graph, defined by entity and relationship filters. 
+
+
+### CIMKnowledgeGraphSubGraph 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| entityFilters | [[CIMKnowledgeGraphNamedTypeFilter]](Types.md#knowledgegraphnamedtypefilter) | The entity filters of the subgraph. The entities of the subgraph are the entities included by "include" filters (or all entities if there is no "include" filter), except entities excluded by "exclude" filters. 
+| relationshipFilters | [[CIMKnowledgeGraphNamedTypeFilter]](Types.md#knowledgegraphnamedtypefilter) | The relationship filters of the subgraph. The relationships of the subgraph are the relationships included by "include" filters (or all relationships if there is no "include" filter), except relationships excluded by "exclude" filters and relationships involving at least one entity that is not in the subgraph. 
 
 
 
@@ -1108,6 +1373,22 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | inclusionSetURI | string | The URI of the binary reference containing the InclusionSet for the table. 
+
+
+
+
+
+
+## CIMKnowledgeGraphTypeLookup
+#### Contains the information required to perform an entity lookup on a specific type. 
+
+
+### CIMKnowledgeGraphTypeLookup 
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| typeName | string | The type name used for the lookup. 
+| properties | [[CIMKnowledgeGraphProperty]](Types.md#knowledgegraphproperty) | The properties used in the lookup. All properties included must match for the lookup to succeed. 
 
 
 
@@ -1279,7 +1560,7 @@
 | minScale | double | The minimum scale for layer draw (set as the denominator of the scale's representative fraction). 
 | layerScaleVisibilityOptions | [CIMLayerScaleVisibilityOptions](CIMLayer.md#cimlayerscalevisibilityoptions) | The layer's scale visibility options. 
 | showLegends | boolean | A value indicating whether or not to show legends. 
-| transparency | double | The transparency of the layer. 
+| transparency | double | The transparency of the layer as a percentage. 
 | visibility | boolean | A value indicating whether or not this layer is visible. 
 | displayCacheType | [enumeration DisplayCacheType](CIMLayer.md#enumeration-displaycachetype) | The display cache type. 
 | maxDisplayCacheAge | double | The maximum display cache age. 
@@ -1291,14 +1572,14 @@
 | searchable | boolean | A value indicating whether or not this layer should be included in the search. This property is honored only by layers that support search. 
 | refreshRate | double | The amount of time to wait between refreshing the layer. 
 | refreshRateUnit | [enumeration esriTimeUnits](ExternalReferences.md#enumeration-esritimeunits) | The units for the amount of time to wait between refreshing the layer. 
-| showMapTips | boolean | A value indicating whether or not the display value is shown when hovering over a layer in the view. 
+| showMapTips | boolean | A value indicating whether or not the value of the display field or expression is shown when hovering over a layer in the view. 
 | customProperties | [[CIMStringMap]](CIMRenderers.md#cimstringmap) | The custom properties of the layer. Custom properties are limited to key / value pairs of strings and developers are fully responsible for stored content. 
 | webMapLayerID | string | An identifier that will be used to identify the layer in a web map. This value is present if the layer originated in a web map and facilitates matching the layer back to its origin when updating the web map. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode for the layer. 
 | allowDrapingOnIntegratedMesh | boolean | A value indicating whether layer can be draped on integrated mesh. 
 | rasterizeOnExport | boolean | A value indicating whether layer should be rasterized when exporting. 
-| useVisibilityTimeExtent | boolean | A value indicating whether or not to use the visibility time extent. When true the map time must overlap the visibility time extent for the layer to be visible. 
-| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The visibility time extent. 
+| useVisibilityTimeExtent | boolean | A value indicating whether or not to use a fixed time extent for layer visibility. When true, the map time must overlap this extent for the layer to be visible. 
+| visibilityTimeExtent | [TimeExtent](ExternalReferences.md#timeextent) | The fixed time extent for layer visibility. 
 | enableLayerEffects | boolean | A value indicating whether to enable any type of effects on the layer. 
 | layerEffects | [[CIMLayerEffect]](CIMLayer.md#cimlayereffect) | The layer effects for the layer. This property will contain either a list of all scale-dependent layer effects, or a single layer effect. 
 
@@ -1307,14 +1588,14 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. 
+| autoGenerateFeatureTemplates | boolean | A value indicating whether to automatically generate feature templates from the renderer. When this value is set to true, appropriate templates will be added to whenever the renderer is changed. 
 | extrusion | [CIMFeatureExtrusion](CIMVectorLayers.md#cimfeatureextrusion) | The feature extrusion. 
 | featureElevationExpression | string | The feature elevation expression. 
 | featureTable | [CIMFeatureTable](CIMVectorLayers.md#cimfeaturetable) | The feature table. 
 | featureTemplates | [[CIMEditingTemplate]](Types.md#editingtemplate) | The feature templates. 
 | htmlPopupEnabled | boolean | A value indicating whether HTML pop-ups are enabled. 
 | htmlPopupFormat | [CIMHtmlPopupFormat](CIMVectorLayers.md#cimhtmlpopupformat) | The HTML pop-ups format. 
-| isFlattened | boolean | A value indicating whether the layer is flattened. 
+| isFlattened | boolean | A value indicating whether the layer is rasterized and draped against the surface in 3D scenes. 
 | selectable | boolean | A value indicating whether the layer is selectable. 
 | selectionColor | [Color](Types.md#color) | The selection color. For polygons, this is used as the outline color. 
 | polygonSelectionFillColor | [Color](Types.md#color) | The selection fill color. Only used for polygons. 
@@ -1325,7 +1606,7 @@
 | enableDisplayFilters | boolean | A value indicating whether the current set of display filters are honored during drawing. 
 | displayFilters | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of scale based display filters. 
 | displayFiltersType | [enumeration DisplayFilterType](CIMVectorLayers.md#enumeration-displayfiltertype) | DisplayFiltersType value. 
-| displayFilterName | string | The active display filter. 
+| displayFilterName | string | The name of the active display filter. 
 | displayFilterChoices | [[CIMDisplayFilter]](CIMVectorLayers.md#cimdisplayfilter) | The current set of display filters. 
 | featureElevationExpressionInfo | [CIMExpressionInfo](CIMRenderers.md#cimexpressioninfo) | The expression for setting the feature elevation. 
 | featureBlendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The per-feature blending mode which allows features in a layer to blend against other features in the same layer that have already drawn. 

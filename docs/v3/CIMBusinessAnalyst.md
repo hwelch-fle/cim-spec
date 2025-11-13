@@ -201,12 +201,24 @@
 
 
 ### Enumeration: BABoundaryMode
-#### Represents Color Coded Layer bounday type. 
+#### Represents Color Coded Layer boundary type. 
 
 |Property | Value | Description | 
 |---------|--------|--------|
 | Geographies| 1| Standard Geographies mode. 
 | H3Hexagons| 2| H3 Hexagon mode. 
+
+
+
+### Enumeration: BAColorCodedLayerLODStatus
+#### Specifies the status of the level of detail. 
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| Available| 0| Level available for map display. 
+| UnknownError| 1| Level cannot not be displayed for an unknown reason. 
+| NoFeatures| 2| The current area of interest does not have any features to display. 
+| TooManyFeatures| 3| There are too many features in the current area of interest to display. 
 
 
 
@@ -452,6 +464,7 @@
 | levelID | string | The level of detail LevelID. 
 | dataConnection | [CIMStandardDataConnection](CIMVectorLayers.md#cimstandarddataconnection) | The level of detail data connection. 
 | levelOfDetailDataConnection | [DataConnection](Types.md#dataconnection) | The level of detail data connection. 
+| levelOfDetailStatus | [enumeration BAColorCodedLayerLODStatus](CIMBusinessAnalyst.md#enumeration-bacolorcodedlayerlodstatus) | The level of detail status. 
 
 
 

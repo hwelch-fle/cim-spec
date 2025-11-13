@@ -36,7 +36,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -108,7 +108,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -144,7 +144,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -180,7 +180,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -216,7 +216,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -256,7 +256,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -289,7 +289,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -326,7 +326,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 
@@ -362,7 +362,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol for the graphic. 
-| transparency | double | The transparency of the graphic. Typically set by the layer or element during draw. Change the transparency of layers in the symbol for persistent changes. 
+| transparency | double | The transparency of the graphic as a percentage. Typically set by the layer or element during draw, but not persisted. Change the transparency of layers in the symbol for persistent changes. 
 | blendingMode | [enumeration BlendingMode](CIMSymbols.md#enumeration-blendingmode) | The blending mode of the graphic. Typically set by the layer or element during draw. 
 | masks | [{JSON_object}]| An array of masks for the graphic. Set by the layer or element during draw, but not persisted in the project. The per-feature masks which defines an area where the CIMGraphic should NOT draw. Every element in the array should support be a Polygon. 
 | referenceScale | double | The reference scale of the graphic. Typically set by the layer or element during draw. 

@@ -55,7 +55,7 @@
 | randomizeStartSeed | long long | The starting value for generating a random number. This random number is used by the randomizeStartTime property to determine time offset for each feature. 
 | startTimeOffset | double | The time offset in seconds to use as the starting point of the symbol animation. This is used if randomizeStartTime=false. 
 | duration | double | How many seconds it takes to play through the symbol's animation once. This determines a symbol's playback speed. 
-| endingDuration | double | The ending duration of a symbol for time-aware data interpolation. The symbol's playback speed is interpolated linearly from duration to endingDuration over the diplay period of a time-aware feature. 
+| endingDuration | double | The ending duration of a symbol for time-aware data interpolation. The symbol's playback speed is interpolated linearly from duration to endingDuration over the display period of a time-aware feature. 
 | useEndingDuration | boolean | A value indicating whether to use the ending duration of a symbol for time-aware data interpolation. 
 | repeatType | [enumeration AnimatedSymbolRepeatType](CIMSymbols.md#enumeration-animatedsymbolrepeattype) | How to repeat the animation of a symbol when an animation cycle ends. 
 | repeatDelay | double | The number of seconds to delay before repeating an animation cycle. 

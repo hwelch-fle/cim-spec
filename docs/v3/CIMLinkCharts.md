@@ -420,7 +420,7 @@
 |Property | Value | Description | 
 |---------|--------|--------|
 | MapSymbology| 0| Use default symbology for the nodes in the entity as defined by the associated layer. 
-| SingleSymbology| 1| Use overriden single symbology for the nodes in the entity. 
+| SingleSymbology| 1| Use overridden single symbology for the nodes in the entity. 
 
 
 

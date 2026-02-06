@@ -1717,3 +1717,21 @@
 
 
 
+### CIMInternetServerConnectionBase
+
+|Property | Type | Description | 
+|---------|--------|--------|
+anonymous | |
+hideUserProperty | |
+password | |
+url | |
+user | |
+authenticationInfo | |
+
+
+### CIMLANServerConnection
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| machine | |
+

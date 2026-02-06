@@ -828,3 +828,76 @@
 
 
 
+### CIMBloomEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| enabled | |
+| radius | |
+| threshold | |
+| intensity | |
+
+
+### CIMBlurEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| enabled | |
+| blurRadius | |
+
+### CIMBrightnessEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| enabled | |
+| strength | |
+
+
+### CIMColorDisplayEffect
+|Property | Type | Description | 
+|---------|--------|--------|
+| enabled | |
+
+
+### CIMContrastEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| enabled | |
+| strength | |
+
+
+### CIMDisplayEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| enabled | |
+
+
+### CIMDisplayEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| enabled | |
+| xOffset | |
+| yOffset | |
+| shadowRadius | |
+
+
+### CIMDropShadowEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| color | |
+
+
+### CIMFeatureLayerEffect
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| whereClause | |
+| includedFeaturesEffects | |
+| excludedFeaturesEffects | |
+
+
+### 

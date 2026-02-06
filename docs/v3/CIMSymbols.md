@@ -3234,3 +3234,69 @@
 
 
 
+### CIM3DMarkerGraphic
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| primitiveType | |
+| diffuseColor | |
+| shapeVerticesCollectionIndex | |
+| isSubstitutionAllowed | |
+| materialProperties | |
+| entityID | |
+| offsetIntoShapeVertices | |
+| countOfShapeVertices | |
+| patchPriority | |
+| textureIndex | |
+
+
+### CIM3DMarkerLOD
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| markerGraphics | |
+| entityNames | |
+
+
+### CIMMarker3D
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| lODLevels | |
+| lODDistances | |
+| width | |
+| depth | |
+| color | |
+| isRestricted | |
+| shapeVertices | |
+| textures | |
+| thumbnail | |
+
+
+### CIMMaterialProperties
+|Property | Type | Description | 
+|---------|--------|--------|
+| specularColor | |
+| shininess | |
+| externalColorMixMode | |
+
+
+### CIMObjectMarker3D
+|Property | Type | Description | 
+|---------|--------|--------|
+| modelURI | |
+| width | |
+| depth | |
+| tintColor | |
+| isRestricted | |
+| thumbnail | |
+| useAnchorPoint | |
+| lODs | |
+| primitiveShapeType | |
+
+
+### CIMObjectMarker3DLOD
+|Property | Type | Description | 
+|---------|--------|--------|
+| faceCount | |
+| modelURI | |

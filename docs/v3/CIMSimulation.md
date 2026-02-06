@@ -1,5 +1,5 @@
-### CIMFloodSimulationObject
-#### TODO: Document
+### CIMSimulationLayer
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -18,8 +18,37 @@
 | secondsPerSimulationCacheSlice | |
 | startTime | |
 
+
+### CIMFloodSimulationObject
+
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| name | |
+| visible | |
+
+
+### CIMFloodSimulationStorage
+
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| waterSourceAreas | |
+| waterSources | |
+| barriers | |
+| culverts | |
+| waterSinkAreas | |
+
+### CIMRateDuration
+
+
+|Property | Value | Description | 
+|---------|--------|--------|
+| duration | |
+| rate | |
+
 ### CIMFloodSimulationBarrier
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -29,7 +58,7 @@
 | unit | |
 
 ### CIMFloodSimulationCulvert
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -42,7 +71,7 @@
 | openTop | |
 
 ### CIMFloodSimulationDepthRaster
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -51,7 +80,7 @@
 
 
 ### CIMFloodSimulationLayer
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -75,14 +104,14 @@
 | calibrationMode | |
 
 ### CIMFloodSimulationRateRaster
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
 | timeUnit | |
 
 ### CIMFloodSimulationWaterObject
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -90,7 +119,7 @@
 | waterRateTransitionTime | |
 
 ### CIMFloodSimulationWaterSinkArea
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
@@ -98,14 +127,14 @@
 | maximumIntake | |
 
 ### CIMFloodSimulationWaterSource
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|
 | location | |
 
 ### CIMFloodSimulationWaterSourceArea
-#### TODO: Document
+
 
 |Property | Value | Description | 
 |---------|--------|--------|

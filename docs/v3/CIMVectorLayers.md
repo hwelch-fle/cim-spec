@@ -1346,6 +1346,17 @@
 
 
 
+### CIMRelateInfoBase
+#### TODO: Document
+
+|Property | Type | Description | 
+|---------|--------|--------|
+| dataConnection | |
+| foreignKey | |
+| primaryKey | |
+| cardinality | |
+| serviceRelateID | |
+| relatedMapMemberURI | |
 
 
 

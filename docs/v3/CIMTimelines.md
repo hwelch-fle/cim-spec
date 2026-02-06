@@ -76,7 +76,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The value of the lane data source ID. 
+| iD | string | The value of the lane data source ID. 
 
 
 
@@ -111,7 +111,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The value of the lane data source ID. 
+| iD | string | The value of the lane data source ID. 
 
 
 ### CIMTimelineLaneMapMemberDataSource 
@@ -147,7 +147,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The Id of for the timeline layer. 
+| iD | string | The Id of for the timeline layer. 
 | alias | string | The timeline layer alias. 
 | layerURI | string | The value of the layer uri. 
 | displayField | string | The value of the display field name. 
@@ -180,7 +180,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The Id of for the timeline swimlane. 
+| iD | string | The Id of for the timeline swimlane. 
 | alias | string | An alias for the swimlane. 
 | visibility | boolean | A value indicating whether the swimlane is visible. 
 | expanded | boolean | A value indicating whether the swimlane is expanded in the contents pane. 

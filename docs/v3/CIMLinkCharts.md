@@ -53,7 +53,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The Id of for the entity. 
+| iD | string | The Id of for the entity. 
 | name | string | The name of the entity. 
 | layerURI | string | The CIMPath for the layer used to create the entity. 
 | labelFieldName | string | The field used to label nodes. 
@@ -76,7 +76,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The ID of the link chart filter. 
+| iD | string | The ID of the link chart filter. 
 | name | string | The name of the link chart filter. 
 | description | string | The description of the link chart filter. 
 | enabled | boolean | A value indicating whether the link chart filter is enabled or not. 
@@ -108,7 +108,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The ID of the link chart filter. 
+| iD | string | The ID of the link chart filter. 
 | name | string | The name of the link chart filter. 
 | description | string | The description of the link chart filter. 
 | enabled | boolean | A value indicating whether the link chart filter is enabled or not. 
@@ -132,7 +132,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The ID of the link chart filter group. 
+| iD | string | The ID of the link chart filter group. 
 | name | string | The name of the link chart filter group. 
 | description | string | The description of the link chart filter group. 
 | enabled | boolean | A value indicating whether the link chart filter group is enabled or not. 
@@ -354,7 +354,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The ID of the link chart filter. 
+| iD | string | The ID of the link chart filter. 
 | name | string | The name of the link chart filter. 
 | description | string | The description of the link chart filter. 
 | enabled | boolean | A value indicating whether the link chart filter is enabled or not. 
@@ -385,7 +385,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The Id of for the relationship. 
+| iD | string | The Id of for the relationship. 
 | name | string | The name of the relationship. 
 | sourceEntityId | string | The source entity id for the relationship. 
 | sourceEntityBackingField | string | The source entity backing field for the relationship. 

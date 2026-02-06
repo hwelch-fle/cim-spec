@@ -456,7 +456,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | alias | string | An identifier for this item that the user provides and can be displayed instead of the Name. 
-| ID | string | The system assigned unique identifier of the project item. 
+| iD | string | The system assigned unique identifier of the project item. 
 | catalogPath | string | The catalog path of the project item. 
 | pathHint | string | The path hint of the project item. Contains the absolute path of the item. Used as a fallback in case the relative path cannot be resolved. 
 | itemType | string | The item type of the project item. 

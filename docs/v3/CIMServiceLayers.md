@@ -399,7 +399,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The ID. 
+| iD | string | The ID. 
 | color | [Color](Types.md#color) | The isosurface color. 
 | isCustomColor | boolean | A value indicating whether the color was set by user. 
 | value | double | The variable value. 
@@ -570,7 +570,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The ID. 
+| iD | string | The ID. 
 | name | string | The name. 
 | description | string | The description. 
 | filterBlocks | [[CIMObject3DRenderingFilterBlock]](CIMServiceLayers.md#cimobject3drenderingfilterblock) | The filter blocks. 
@@ -1228,7 +1228,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | string | The ID. 
+| iD | string | The ID. 
 | name | string | The plane's name. 
 | visible | boolean | A value indicating whether the plane is visible. 
 | position | [Point](ExternalReferences.md#point) | A point on the plane, specified in voxel coordinates. 
@@ -1287,7 +1287,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | long | The section ID, which must be unique among all sections in the layer. 
+| iD | long | The section ID, which must be unique among all sections in the layer. 
 | name | string | The section name. 
 | visible | boolean | A value indicating whether the section is visible. 
 | expanded | boolean | A value indicating whether this section is expanded in the contents pane. 
@@ -1464,7 +1464,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| ID | long | The volume ID, which must be unique among all volumes in the layer. 
+| iD | long | The volume ID, which must be unique among all volumes in the layer. 
 | sections | [[CIMVoxelPlane]](CIMServiceLayers.md#cimvoxelplane) | A collection of sections. 
 | slices | [[CIMVoxelPlane]](CIMServiceLayers.md#cimvoxelplane) | A collection of slices. 
 | variableProfiles | [[CIMVoxelVariableProfile]](CIMServiceLayers.md#cimvoxelvariableprofile) | The variable profiles. 

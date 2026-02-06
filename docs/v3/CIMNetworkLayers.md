@@ -381,7 +381,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | name | string | The name of trace configuration. 
-| ID | string | Global id of trace configuration. 
+| iD | string | Global id of trace configuration. 
 
 
 

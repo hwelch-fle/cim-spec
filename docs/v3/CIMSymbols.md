@@ -265,7 +265,7 @@
 |Property | Type | Description | 
 |---------|--------|--------|
 | name | string | The name. 
-| CGAAttributeType | [enumeration CGAAttributeType](CIMSymbols.md#enumeration-cgaattributetype) | The CGA attribute type. 
+| cGAAttributeType | [enumeration CGAAttributeType](CIMSymbols.md#enumeration-cgaattributetype) | The CGA attribute type. 
 | value | any | The value. Used when CGAAttributeType is Float, String and Boolean. 
 | values | [[any]]| The values in the array. Used when CGAAttributeType is Float_Array, String_Array and Boolean_Array. 
 | arrayRowCount | long | The count of rows in the array. Used when CGAAttributeType is Float_Array, String_Array and Boolean_Array. 
@@ -457,8 +457,8 @@
 |---------|--------|--------|
 | horizontalAlignment | [enumeration HorizontalAlignment](CIMSymbols.md#enumeration-horizontalalignment) | The horizontal alignment of the text part. 
 | verticalAlignment | [enumeration VerticalAlignment](CIMSymbols.md#enumeration-verticalalignment) | The vertical alignment of the text part. 
-| XOffset | double | The X offset of the text part. 
-| YOffset | double | The Y offset of the text part. 
+| xOffset | double | The X offset of the text part. 
+| yOffset | double | The Y offset of the text part. 
 | splitOffset | double | The split offset of the text part. This determines how much of a gap there is between the callout border and any part of the text part intersecting the border If this is set to wider than the callout width, none of the associated callout line will draw. 
 | isPartWithinCalloutBox | boolean | A value indicating whether the text part will be contained within the main callout. If this is set to true, the main callout will expand to encompass this text part, and a line will be draw separating the part from the rest of the callout. This line will have the same symbol as the callout outline and will only draw if the text part is above or below the top and bottom margins of the middle text. 
 
@@ -1174,8 +1174,8 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| XScaleFactor | double | The amount of change in size of a symbol in the x-axis. The value is expressed in terms of a ratio/percentage. 
-| YScaleFactor | double | The amount of change in size of a symbol in the y-axis. The value is expressed in terms of a ratio/percentage. 
+| xScaleFactor | double | The amount of change in size of a symbol in the x-axis. The value is expressed in terms of a ratio/percentage. 
+| yScaleFactor | double | The amount of change in size of a symbol in the y-axis. The value is expressed in terms of a ratio/percentage. 
 
 
 

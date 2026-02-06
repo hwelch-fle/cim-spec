@@ -1365,7 +1365,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| URI | string | The URI of the layer. 
+| uRI | string | The URI of the layer. 
 | bandID | long | The band ID. 
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The symbol. 
 | label | string | The label. 
@@ -1531,7 +1531,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| URI | string | The URI of the layer. 
+| uRI | string | The URI of the layer. 
 | ID | long long | The object ID of the track feature. 
 | symbol | [CIMSymbolReference](CIMRenderers.md#cimsymbolreference) | The layer symbol. 
 | label | string | The layer label. 

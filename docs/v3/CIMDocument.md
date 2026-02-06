@@ -9,7 +9,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| URI | string | The URI of the binary reference. Typically set by the system but used as a reference path. 
+| uRI | string | The URI of the binary reference. Typically set by the system but used as a reference path. 
 | data | string | The base64 encoded data of the binary reference. 
 | object | [CIMObject](ExternalReferences.md#cimobject) | The stored CIM object. This property is meant to be used as an alternative to the Data property. 
 

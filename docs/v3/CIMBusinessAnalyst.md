@@ -339,7 +339,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| URI | string | The area of interest feature layer URI. 
+| uRI | string | The area of interest feature layer URI. 
 
 
 

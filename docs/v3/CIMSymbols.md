@@ -2076,7 +2076,7 @@
 
 |Property | Type | Description | 
 |---------|--------|--------|
-| URL | string | The URL of the image. Typically a base64 encoded image. 
+| url | string | The URL of the image. Typically a base64 encoded image. 
 | offsetX | double | The distance that the image is offset in the horizontal direction. 
 | offsetY | double | The distance that the image is offset in the vertical direction. 
 | rotation | double | Angle of the image within the fill. 
@@ -2137,7 +2137,7 @@
 | scaleX | double | The scale X which changes the width of the symbol without changing the height (or depth in 3D), as a ratio. 
 | textureFilter | [enumeration TextureFilter](CIMSymbols.md#enumeration-texturefilter) | How the image is resampled. 
 | tintColor | [Color](Types.md#color) | The color that is applied as a tint to the image. The color is applied to the whole image. When the tint is set to white the image appears with its native colors. 
-| URL | string | The image that is used in the symbol layer. Typically a base64 encoded image. 
+| url | string | The image that is used in the symbol layer. Typically a base64 encoded image. 
 | verticalOrientation3D | boolean | A value indicating whether the marker stands upright as though locked in place. The marker can be viewed from all angles. 
 | animatedSymbolProperties | [CIMAnimatedSymbolProperties](CIMSymbols.md#cimanimatedsymbolproperties) | The collection of symbol properties that apply when the symbol layer has animation data. 
 
@@ -2183,7 +2183,7 @@
 |---------|--------|--------|
 | colorSubstitutions | [[CIMColorSubstitution]](CIMSymbols.md#cimcolorsubstitution) | The color substitutions for the picture. 
 | textureFilter | [enumeration TextureFilter](CIMSymbols.md#enumeration-texturefilter) | How the image is resampled. 
-| URL | string | The image that is used in the symbol layer. Typically a base64 encoded image. 
+| url | string | The image that is used in the symbol layer. Typically a base64 encoded image. 
 | tintColor | [Color](Types.md#color) | The color that is applied as a tint to the image. The color is applied to the whole image. When the tint is set to white the image appears with its native colors. 
 
 

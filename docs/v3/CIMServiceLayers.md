@@ -31,7 +31,7 @@
 |---------|--------|--------|
 | objectName | string | The object name. 
 | objectType | string | The object type. 
-| URL | string | The URL. 
+| url | string | The URL. 
 | capabilities | string | The capabilities. 
 | serverConnection | [ServerConnection](Types.md#serverconnection) | The server connection. 
 | gdbVersion | string | The name of the geodatabase version to use in service requests. 
@@ -382,7 +382,7 @@
 | anonymous | boolean | A value indicating whether of not this is an anonymous connection. 
 | hideUserProperty | boolean | A value indicating whether of not to hide the user. 
 | password | string | The encrypted password as a base 64 encoded string. Used internally by the system. Not persisted in documents. 
-| URL | string | The URL. 
+| url | string | The URL. 
 | user | string | The user. 
 | authenticationInfo | string | The string containing additional authentication information for the connection. 
 
@@ -672,7 +672,7 @@
 | anonymous | boolean | A value indicating whether of not this is an anonymous connection. 
 | hideUserProperty | boolean | A value indicating whether of not to hide the user. 
 | password | string | The encrypted password as a base 64 encoded string. Used internally by the system. Not persisted in documents. 
-| URL | string | The URL. 
+| url | string | The URL. 
 | user | string | The user. 
 | authenticationInfo | string | The string containing additional authentication information for the connection. 
 
@@ -832,7 +832,7 @@
 |---------|--------|--------|
 | serviceProvider | string | The service provider. 
 | serviceType | string | The service type. 
-| URL | string | The service URL. 
+| url | string | The service URL. 
 | culture | string | The service culture. 
 
 
